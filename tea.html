@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tea Specifications | RK Natural Exports</title>
+
+  <!-- Fonts (match site) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Site-wide + page-local CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="tea.css">
+</head>
+<body>
+
+  <!-- ===== Header / Nav (same as Home) ===== -->
+  <header class="site-header style-bar">
+    <div class="container nav-centered">
+      <input id="nav-toggle" type="checkbox" aria-label="toggle navigation">
+      <label for="nav-toggle" class="hamburger" aria-label="Open menu"><span></span></label>
+
+      <nav class="nav nav--left" aria-label="Primary">
+        <a href="index.html#hero">Home</a>
+        <a href="index.html#about">About Us</a>
+        <div class="nav-item dropdown">
+          <a href="index.html#products" aria-haspopup="true">Products <i class="fa-solid fa-caret-down" aria-hidden="true"></i></a>
+          <div class="menu" role="menu">
+            <a href="coffee.html" role="menuitem">Coffee</a>
+            <a href="tea.html" role="menuitem">Tea</a>
+            <a href="index.html#products" role="menuitem">Pepper</a>
+            <a href="index.html#products" role="menuitem">Areca Plates</a>
+          </div>
+        </div>
+      </nav>
+
+      <a href="index.html#hero" class="brand brand--center" aria-label="RK Natural Exports - Home">
+        <img src="https://i.ibb.co/ZzJpf8mk/RK-logo.png" alt="RK Natural Exports logo" loading="lazy">
+      </a>
+
+      <nav class="nav nav--right" aria-label="Secondary">
+        <a href="index.html#quality">What We Do?</a>
+        <a href="index.html#reach">Global Reach</a>
+        <a href="index.html#lead-capture">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Tea Hero (450px height) ===== -->
+  <section class="tea-hero" style="--hero-url: url('https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Tea%20Banner.png')">
+    <div class="tea-hero__overlay"></div>
+    <div class="tea-hero__inner">
+      <h1>Black Tea</h1> 
+      <p>CTC &amp; Orthodox Grades • Dust to Whole Leaf</p>
+    </div>
+  </section>
+
+  <!-- ===== Specs (Alternating layout, equal columns) ===== -->
+  <main class="tea-wrap">
+    <div class="frame">
+
+      <!-- 1. SFD – Super Fine Dust -->
+      <article class="spec">
+        <h3 class="spec__title">SFD – SUPER FINE DUST</h3>
+        <div class="spec__grid">
+          <figure class="spec__media">
+            <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Super%20Fine%20Dust%20SFD.jpg" alt="SFD Super Fine Dust tea">
+          </figure>
+          <div class="spec__body">
+            <p class="spec__intro">
+              The finest particle size among dust teas, giving a strong, dark liquor and brisk character. Preferred in tea bags and quick-brewing blends.
+            </p>
+
+            <h4 class="spec__h4">Cup Profile</h4>
+            <table class="spec-table">
+              <tbody>
+                <tr><td>Liquor</td><td>Very strong, quick brew, deep red cup</td></tr>
+                <tr><td>Common Use</td><td>Tea bags, fast infusion teas</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2. SRD – Super Red Dust -->
+      <article class="spec">
+        <h3 class="spec__title">SRD – SUPER RED DUST</h3>
+        <div class="spec__grid">
+          <figure class="spec__media">
+            <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Super%20Red%20Dust%20SRD.jpg" alt="SRD Super Red Dust tea">
+          </figure>
+          <div class="spec__body">
+            <p class="spec__intro">
+              Slightly coarser than SFD, with a bright reddish liquor and strong taste. Very popular for blends that require quick infusion and strong cup.
+            </p>
+
+            <h4 class="spec__h4">Cup Profile</h4>
+            <table class="spec-table">
+              <tbody>
+                <tr><td>Liquor</td><td>Strong, bright red liquor, brisk</td></tr>
+                <tr><td>Common Use</td><td>Domestic dust blends, strong cup drinkers</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. RD – Red Dust -->
+      <article class="spec">
+        <h3 class="spec__title">RD – RED DUST</h3>
+        <div class="spec__grid">
+          <figure class="spec__media">
+            <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Red%20Dust%20RD.jpg" alt="RD Red Dust tea">
+          </figure>
+          <div class="spec__body">
+            <p class="spec__intro">
+              Coarser than SRD, but still in dust category. Produces bright red liquor with medium to strong strength.
+            </p>
+
+            <h4 class="spec__h4">Cup Profile</h4>
+            <table class="spec-table">
+              <tbody>
+                <tr><td>Liquor</td><td>Medium-bodied, reddish, brisk</td></tr>
+                <tr><td>Common Use</td><td>Popular in South Indian tea markets for everyday consumption</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4. PD – Pekoe Dust -->
+      <article class="spec">
+        <h3 class="spec__title">PD – PEKOE DUST</h3>
+        <div class="spec__grid">
+          <figure class="spec__media">
+            <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Pekoe%20Dust%20PD.jpg" alt="PD Pekoe Dust tea">
+          </figure>
+          <div class="spec__body">
+            <p class="spec__intro">
+              A dust grade slightly bigger in size than RD. Brews a bright cup with medium strength.
+            </p>
+
+            <h4 class="spec__h4">Cup Profile</h4>
+            <table class="spec-table">
+              <tbody>
+                <tr><td>Liquor</td><td>Balanced cup, good briskness, medium body</td></tr>
+                <tr><td>Common Use</td><td>Blends where dust is needed but not overly fine</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5. PF – Pekoe Fannings -->
+      <article class="spec">
+        <h3 class="spec__title">PF – PEKOE FANNINGS</h3>
+        <div class="spec__grid">
+          <figure class="spec__media">
+            <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Pekoe%20Finning%20PF.jpg" alt="PF Pekoe Fannings tea">
+          </figure>
+          <div class="spec__body">
+            <p class="spec__intro">
+              Smaller broken leaf particles that brew a bright, quick cup, stronger than leaf but lighter than dust grades.
+            </p>
+
+            <h4 class="spec__h4">Cup Profile</h4>
+            <table class="spec-table">
+              <tbody>
+                <tr><td>Liquor</td><td>Bright, brisk, fairly strong</td></tr>
+                <tr><td>Common Use</td><td>Blended teas, tea bags, loose black teas</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6. BP – Broken Pekoe -->
+      <article class="spec">
+        <h3 class="spec__title">BP – BROKEN PEKOE</h3>
+        <div class="spec__grid">
+          <figure class="spec__media">
+            <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Broken%20Pekoe%20BP.jpg" alt="BP Broken Pekoe tea">
+          </figure>
+          <div class="spec__body">
+            <p class="spec__intro">
+              Larger broken leaf grade, produces a medium-strong cup with good color. Retains more leaf character than dust grades.
+            </p>
+
+            <h4 class="spec__h4">Cup Profile</h4>
+            <table class="spec-table">
+              <tbody>
+                <tr><td>Liquor</td><td>Full-bodied, brisk, aromatic</td></tr>
+                <tr><td>Common Use</td><td>Loose teas, blended leaf-dust mixes</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7. BOP – Broken Orange Pekoe -->
+      <article class="spec">
+        <h3 class="spec__title">BOP – BROKEN ORANGE PEKOE</h3>
+        <div class="spec__grid">
+          <figure class="spec__media">
+            <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Broken%20Orange%20Pekoe.jpg" alt="BOP Broken Orange Pekoe tea">
+          </figure>
+          <div class="spec__body">
+            <p class="spec__intro">
+              One of the most recognized broken grades. Balanced in liquor strength and aroma, widely traded in bulk exports.
+            </p>
+
+            <h4 class="spec__h4">Cup Profile</h4>
+            <table class="spec-table">
+              <tbody>
+                <tr><td>Liquor</td><td>Medium to full-bodied, bright, strong aroma</td></tr>
+                <tr><td>Common Use</td><td>Premium blends, export markets, loose tea packs</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+
+      <!-- 8. Pekoe -->
+      <article class="spec">
+        <h3 class="spec__title">PEKOE</h3>
+        <div class="spec__grid">
+          <figure class="spec__media">
+            <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Pekoe.jpg" alt="Pekoe tea">
+          </figure>
+          <div class="spec__body">
+            <p class="spec__intro">
+              Whole-leaf or slightly broken, rolled leaf grade. Produces a lighter cup, smooth and aromatic. Considered higher-end in orthodox teas.
+            </p>
+
+            <h4 class="spec__h4">Cup Profile</h4>
+            <table class="spec-table">
+              <tbody>
+                <tr><td>Liquor</td><td>Light-bodied, delicate, aromatic</td></tr>
+                <tr><td>Common Use</td><td>Orthodox teas, specialty blends, retail packs</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- ===== Footer (same as Home) ===== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+
+      <div class="foot-brand">
+        <img src="https://i.ibb.co/ZzJpf8mk/RK-logo.png" alt="RK Natural Exports logo" loading="lazy" width="60" height="60">
+        <p class="tagline">Exporting nature’s finest — responsibly sourced from Indian farms.</p>
+
+        <div class="cta-stack">
+          <a class="btn" href="mailto:rknaturalexports@gmail.com">Request a Quote</a>
+          <a class="btn btn--ghost" href="https://wa.me/919449767262" target="_blank" rel="noopener">WhatsApp Us</a>
+        </div>
+
+        <div class="social" aria-label="Social links">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61580130311213" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.linkedin.com/in/venu-r-gowda-761464373/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h6 class="foot-heading">Quick Links</h6>
+        <ul class="link-list">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#products">Products</a></li>
+          <li><a href="index.html#quality">Sourcing & Quality</a></li>
+          <li><a href="index.html#reach">Global Reach</a></li>
+          <li><a href="index.html#lead-capture">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h6 class="foot-heading">Compliance</h6>
+        <ul class="link-list">
+          <li><strong>IEC:</strong> Available</li>
+          <li><strong>Coffee Board RCMC/APEDA:</strong> Available</li>
+          <li><strong>FSSAI:</strong> If applicable</li>
+          <li>Phytosanitary &amp; Fumigation certificates issued per shipment • COO available.</li>
+        </ul>
+      </div>
+
+      <div id="lead-capture">
+        <h6 class="foot-heading">Get a Quote</h6>
+        <form class="lead-form" action="https://formsubmit.co/rknaturalexports@gmail.com" method="POST">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="New Quote Request - RK Natural Exports">
+          <label>
+            <span>Name</span>
+            <input type="text" name="name" placeholder="Your name" required>
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" placeholder="name@example.com" required>
+          </label>
+          <label>
+            <span>WhatsApp</span>
+            <input type="tel" name="whatsapp" placeholder="+91 9XXXXXXXXX">
+          </label>
+          <label>
+            <span>What are you looking to import?</span>
+            <textarea name="message" rows="3" placeholder="e.g., 5 MT SFD / SRD dust grade for bags…" required></textarea>
+          </label>
+          <button class="btn btn--block" type="submit">Get Quote</button>
+        </form>
+
+        <ul class="link-list contact-links">
+          <li><i class="fa-solid fa-phone"></i> <a href="tel:+919449767262">+91 94497 67262</a></li>
+          <li><i class="fa-solid fa-envelope"></i> <a href="mailto:rknaturalexports@gmail.com">rknaturalexports@gmail.com</a></li>
+          <li><i class="fa-solid fa-location-dot"></i> <a href="https://maps.google.com/?q=Chikkamagaluru,+Karnataka,+India" target="_blank" rel="noopener">Chikkamagaluru, Karnataka, India</a></li>
+          <li class="muted small">Registered Office: Chikkamagaluru, Karnataka • GSTIN/IEC available on request.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container foot-bottom">
+      <small>
+        © <span id="year"></span> RK Natural Exports. All rights reserved.
+        &nbsp;•&nbsp; <a href="#" class="legal-link">Privacy Policy</a>
+        &nbsp;•&nbsp; <a href="#" class="legal-link">Terms</a>
+      </small>
+    </div>
+  </footer>
+
+  <div class="sticky-cta" role="region" aria-label="Quick contact">
+    <a class="btn btn--block" href="https://wa.me/919449767262" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="btn btn--ghost btn--block" href="index.html#lead-capture">Request Quote</a>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

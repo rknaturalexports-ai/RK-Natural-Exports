@@ -1,0 +1,150 @@
+/* =========================================================
+   RK — Tea Page (hero + alternating spec cards)
+   Matches coffee page behavior, tea accent palette
+   ========================================================= */
+
+/* Hero (450px desktop / 320px mobile) */
+.tea-hero{
+  position: relative;
+  height: 450px;
+  min-height: 300px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(20,30,22,.62), rgba(17,23,19,.74)),
+    var(--hero-url, url('https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?q=80&w=1600&auto=format&fit=crop'))
+    center / cover no-repeat;
+}
+@media (max-width: 640px){
+  .tea-hero{ height: 320px; }
+}
+.tea-hero__overlay{
+  position:absolute; inset:0;
+  background: radial-gradient(1200px 400px at 50% 80%, rgba(0,0,0,.22), transparent 70%);
+  pointer-events:none;
+}
+.tea-hero__inner{
+  position: relative;
+  width: 100%;
+  text-align: center;
+  color: #fff;                        /* force white */
+  padding: 84px 20px 48px;
+}
+.tea-hero h1{
+  margin: 0 0 6px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.2rem, 4.2vw, 3rem);
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: #fff !important;             /* override any inherited green */
+  text-shadow: 0 3px 10px rgba(0,0,0,.55), 0 1px 2px rgba(0,0,0,.35);
+}
+.tea-hero p{ 
+	margin: 0 0 14px;
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: clamp(.98rem, 1.8vw, 1.05rem);
+  color: #f7f7f7;                     /* brighter than before */
+  opacity: .98;
+  text-shadow: 0 2px 6px rgba(0,0,0,.5);
+  }
+
+/* Content canvas */
+.tea-wrap { padding: 28px 0 56px; background: #f9fcf8; }
+.frame { width: 1210px; max-width: 100%; padding: 20px; margin: 0 auto; box-sizing: border-box; }
+
+/* Spec card */
+.spec{
+  background: #fff;
+  border: 1px solid #e2efe4;
+  border-radius: 14px;
+  box-shadow: 0 12px 26px rgba(0,0,0,.06);
+  padding: 18px;
+  margin: 0 0 26px;
+}
+
+/* Title centered */
+.spec__title{
+  text-align: center;
+  letter-spacing: .06em;
+  color: #2f5a3a; /* tea green accent */
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+  margin: 6px 0 14px;
+}
+
+/* Alternating grid (equal 1fr / 1fr) */
+.spec__grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* equal width */
+  grid-template-areas: "media body";
+  gap: 24px;
+  align-items: start;
+}
+.spec__media{ grid-area: media; }
+.spec__body { grid-area: body; }
+
+/* flip layout for even specs */
+.spec:nth-of-type(even) .spec__grid{
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "body media";
+}
+
+/* Media */
+.spec__media{
+  border: 1px solid #d7e7da;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f3fbf6;
+}
+.spec__media img{
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;   /* uniform height */
+  object-fit: cover;
+  display: block;
+}
+
+/* Body */
+.spec__intro { margin: 0 0 12px; }
+.spec__h4{
+  margin: 14px 0 8px;
+  color: #2f5a3a;
+  font-weight: 700;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* Tables */
+.spec-table{
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .95rem;
+  border: 1px solid #dfece3;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 0 12px;
+}
+.spec-table thead th{
+  text-align: left;
+  background: #2f5a3a;
+  color: #fff;
+  padding: 10px 12px;
+  font-weight: 600;
+}
+.spec-table tbody td{
+  padding: 9px 12px;
+  border-top: 1px solid #e9f3ed;
+  background: #fff;
+}
+.spec-table tbody tr:nth-child(odd) td{ background: #f7fbf8; }
+
+/* Mobile stack */
+@media (max-width: 980px){
+  .spec__grid{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "media"
+      "body";
+  }
+  .spec__media img{ aspect-ratio: 16 / 10; }
+}
