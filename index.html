@@ -43,40 +43,60 @@
 </head>
 <body>
 
-  <!-- ===== Header / Nav (center logo) ===== -->
+  <!-- ===== Header / Nav (center logo on desktop, tuned for mobile) ===== -->
   <header class="site-header style-bar">
     <div class="container nav-centered">
       <!-- Mobile toggle -->
       <input id="nav-toggle" type="checkbox" aria-label="toggle navigation">
       <label for="nav-toggle" class="hamburger" aria-label="Open menu"><span></span></label>
 
-      <!-- Left group -->
+      <!-- Left group (desktop) -->
       <nav class="nav nav--left" aria-label="Primary">
         <a href="#hero">Home</a>
         <a href="#about">About Us</a>
-<!-- Products dropdown (index.html) -->
-<div class="nav-item dropdown">
-  <a href="#products" aria-haspopup="true">Products <i class="fa-solid fa-caret-down" aria-hidden="true"></i></a>
-  <div class="menu" role="menu">
-    <!-- Update this line -->
-    <a href="coffee.html" role="menuitem">Coffee</a>
-	<a href="tea.html" role="menuitem">Tea</a>
 
-    <!-- (Optional) keep others local or point them to their own pages later) -->
-    <a href="#products" role="menuitem">Pepper</a>
-    <a href="#products" role="menuitem">Areca Plates</a>
-  </div>
-</div>
-
+        <div class="nav-item dropdown">
+          <a href="#products" aria-haspopup="true" aria-expanded="false">
+            Products <i class="fa-solid fa-caret-down" aria-hidden="true"></i>
+          </a>
+          <div class="menu" role="menu">
+            <a href="coffee.html" role="menuitem">Coffee</a>
+            <a href="tea.html" role="menuitem">Tea</a>
+            <a href="#products" role="menuitem">Pepper</a>
+            <a href="#products" role="menuitem">Areca Plates</a>
+          </div>
+        </div>
       </nav>
 
-      <!-- Centered logo badge -->
+      <!-- Centered logo badge (desktop) / nudged left on mobile via CSS -->
       <a href="#hero" class="brand brand--center" aria-label="RK Natural Exports - Home">
         <img src="https://i.ibb.co/ZzJpf8mk/RK-logo.png" alt="RK Natural Exports logo" loading="lazy">
       </a>
 
-      <!-- Right group -->
+      <!-- Right group (desktop) -->
       <nav class="nav nav--right" aria-label="Secondary">
+        <a href="#quality">What We Do?</a>
+        <a href="#reach">Global Reach</a>
+        <a href="#lead-capture">Contact Us</a>
+      </nav>
+
+      <!-- Combined mobile drawer (mobile only) -->
+      <nav class="mobile-drawer" aria-label="Mobile">
+        <a href="#hero">Home</a>
+        <a href="#about">About Us</a>
+
+        <div class="nav-item dropdown">
+          <a href="#products" aria-haspopup="true" aria-expanded="false">
+            Products <i class="fa-solid fa-caret-down" aria-hidden="true"></i>
+          </a>
+          <div class="menu" role="menu">
+            <a href="coffee.html" role="menuitem">Coffee</a>
+            <a href="tea.html" role="menuitem">Tea</a>
+            <a href="#products" role="menuitem">Pepper</a>
+            <a href="#products" role="menuitem">Areca Plates</a>
+          </div>
+        </div>
+
         <a href="#quality">What We Do?</a>
         <a href="#reach">Global Reach</a>
         <a href="#lead-capture">Contact Us</a>
@@ -99,7 +119,7 @@
       </p>
       <p class="hero-sub">Coffee, tea, spices &amp; eco-friendly areca plates — ethically sourced and quality-checked at origin.</p>
 
-      <!-- Dual CTAs -->
+      <!-- CTA -->
       <div class="hero__cta">
         <a href="#lead-capture" class="btn btn--lg" aria-label="Get Samples">Get Samples</a>
       </div>
@@ -152,7 +172,7 @@
           </ul>
         </div>
 
-        <!-- Right image (smaller card) -->
+        <!-- Right image -->
         <div class="about__image">
           <figure>
             <img
@@ -163,7 +183,6 @@
         </div>
       </div>
 
-      <!-- Mission line across full width -->
       <p class="mission-full">
         <em>At RK Natural Exports, our mission is simple: to connect the world with the authentic flavors of India while creating value for farmers and buyers alike.</em>
       </p>
@@ -272,7 +291,6 @@
       </p>
 
       <div class="why-grid">
-        <!-- LEFT benefits -->
         <div class="why-col">
           <div class="feature">
             <i class="fa-solid fa-seedling"></i>
@@ -299,7 +317,6 @@
           </div>
         </div>
 
-        <!-- CENTER image -->
         <figure class="why-hero">
           <img
             src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/3ac703cc3b13a06fe6377025ac27a9f365e7a5aa/ChatGPT%20Image%20Sep%2025%2C%202025%2C%2011_05_19%20AM.png"
@@ -308,7 +325,6 @@
             decoding="async">
         </figure>
 
-        <!-- RIGHT benefits -->
         <div class="why-col">
           <div class="feature">
             <i class="fa-solid fa-people-group"></i>
@@ -372,7 +388,6 @@
       </div>
     </div>
 
-    <!-- Trusted by strip -->
     <div class="container trusted-by">
       <div class="trusted-text"><i class="fa-solid fa-globe" aria-hidden="true"></i> Supplying buyers in <strong>Europe</strong>, <strong>Gulf</strong> &amp; <strong>Southeast Asia</strong></div>
       <div class="doc-proof">
@@ -417,11 +432,10 @@
     </div>
   </section>
 
-  <!-- ===== FOOTER with CTAs + Lead capture ===== -->
+  <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
     <div class="container footer-grid">
 
-      <!-- Brand & primary CTAs -->
       <div class="foot-brand">
         <img src="https://i.ibb.co/ZzJpf8mk/RK-logo.png" alt="RK Natural Exports logo" loading="lazy" width="60" height="60">
         <p class="tagline">Exporting nature’s finest — responsibly sourced from Indian farms.</p>
@@ -438,7 +452,6 @@
         </div>
       </div>
 
-      <!-- Quick Links -->
       <div>
         <h6 class="foot-heading">Quick Links</h6>
         <ul class="link-list">
@@ -450,7 +463,6 @@
         </ul>
       </div>
 
-      <!-- Compliance -->
       <div>
         <h6 class="foot-heading">Compliance</h6>
         <ul class="link-list">
@@ -461,7 +473,6 @@
         </ul>
       </div>
 
-      <!-- Lead capture -->
       <div id="lead-capture">
         <h6 class="foot-heading">Get a Quote</h6>
         <form class="lead-form" action="https://formsubmit.co/rknaturalexports@gmail.com" method="POST">
@@ -504,12 +515,6 @@
     </div>
   </footer>
 
-  <!-- Sticky mobile CTA -->
-  <div class="sticky-cta" role="region" aria-label="Quick contact">
-    <a class="btn btn--block" href="https://wa.me/919449767262" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">WhatsApp</a>
-    <a class="btn btn--ghost btn--block" href="#lead-capture" aria-label="Request a quote">Request Quote</a>
-  </div>
-
   <script>
     // Auto year
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -536,6 +541,44 @@
         }
       });
     })();
+  </script>
+
+  <!-- Mobile drawer: toggle dropdown, close on link click; desktop unaffected -->
+  <script>
+  (function () {
+    const navToggle = document.getElementById('nav-toggle');
+    const isMobile = () => window.matchMedia('(max-width: 980px)').matches;
+
+    const closeDrawer = () => { if (navToggle) navToggle.checked = false; };
+
+    // Toggle Products dropdown inside the mobile drawer
+    document.querySelectorAll('.mobile-drawer .nav-item.dropdown > a').forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        if (!isMobile()) return;        // desktop uses hover
+        e.preventDefault();
+        const item = trigger.parentElement;
+        const nowOpen = item.classList.toggle('open');
+        trigger.setAttribute('aria-expanded', nowOpen ? 'true' : 'false');
+        // Close any siblings
+        item.parentElement.querySelectorAll('.nav-item.dropdown.open').forEach(o => {
+          if (o !== item) {
+            o.classList.remove('open');
+            const a = o.querySelector('a[aria-haspopup="true"]');
+            if (a) a.setAttribute('aria-expanded','false');
+          }
+        });
+      });
+    });
+
+    // Close drawer when any link inside it is clicked (including submenu links)
+    document.querySelectorAll('.mobile-drawer a[href]').forEach(link => {
+      link.addEventListener('click', () => closeDrawer());
+    });
+
+    // Close on Esc or when resizing to desktop
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
+    window.addEventListener('resize', () => { if (!isMobile()) closeDrawer(); });
+  })();
   </script>
 </body>
 </html>
