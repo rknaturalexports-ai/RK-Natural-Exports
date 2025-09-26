@@ -15,12 +15,12 @@
 
   <!-- Site-wide styles (your existing) -->
   <link rel="stylesheet" href="styles.css">
-  <!-- Page-local styles -->
+  <!-- Page-local styles (mobile-only hamburger tweaks live here) -->
   <link rel="stylesheet" href="coffee.css">
 </head>
 <body>
 
-  <!-- ===== Header / Nav (same as home) ===== -->
+  <!-- ===== Header / Nav (same structure as home) ===== -->
   <header class="site-header style-bar">
     <div class="container nav-centered">
       <!-- Mobile toggle -->
@@ -32,7 +32,9 @@
         <a href="index.html#hero">Home</a>
         <a href="index.html#about">About Us</a>
         <div class="nav-item dropdown">
-          <a href="index.html#products" aria-haspopup="true">Products <i class="fa-solid fa-caret-down" aria-hidden="true"></i></a>
+          <a href="index.html#products" aria-haspopup="true" aria-expanded="false">
+            Products <i class="fa-solid fa-caret-down" aria-hidden="true"></i>
+          </a>
           <div class="menu" role="menu">
             <a href="coffee.html" role="menuitem">Coffee</a>
             <a href="tea.html" role="menuitem">Tea</a>
@@ -53,11 +55,36 @@
         <a href="index.html#reach">Global Reach</a>
         <a href="index.html#lead-capture">Contact Us</a>
       </nav>
+
+      <!-- Combined MOBILE drawer (shown only on mobile) -->
+      <div class="mobile-drawer">
+        <a href="index.html#hero">Home</a>
+        <a href="index.html#about">About Us</a>
+
+        <!-- Mobile dropdown for Products -->
+        <div class="nav-item dropdown">
+          <a href="index.html#products" aria-haspopup="true" aria-expanded="false">
+            Products <i class="fa-solid fa-caret-down" aria-hidden="true"></i>
+          </a>
+          <div class="menu" role="menu">
+            <a href="coffee.html" role="menuitem">Coffee</a>
+            <a href="tea.html" role="menuitem">Tea</a>
+            <a href="index.html#products" role="menuitem">Pepper</a>
+            <a href="index.html#products" role="menuitem">Areca Plates</a>
+          </div>
+        </div>
+
+        <a href="index.html#quality">What We Do?</a>
+        <a href="index.html#reach">Global Reach</a>
+        <a href="index.html#lead-capture">Contact Us</a>
+      </div>
+
+      <!-- Backdrop for click-outside-to-close on mobile -->
+      <div class="drawer-backdrop" aria-hidden="true"></div>
     </div>
   </header>
 
   <!-- ===== Coffee Hero (450px height) ===== -->
-  <!-- Swap --hero-url if you prefer a different banner image -->
   <section class="coffee-hero" style="--hero-url: url('https://flb-public.s3.ap-south-1.amazonaws.com/Vibez_Coffee_estate_3.jpeg')">
     <div class="coffee-hero__overlay"></div>
     <div class="coffee-hero__inner">
@@ -399,10 +426,11 @@
         </div>
       </article>
 
+
     </div>
   </main>
 
-  <!-- ===== Footer (exactly same as home) ===== -->
+  <!-- ===== Footer (same as home) ===== -->
   <footer class="site-footer">
     <div class="container footer-grid">
 
@@ -483,21 +511,58 @@
     <div class="container foot-bottom">
       <small>
         © <span id="year"></span> RK Natural Exports. All rights reserved.
-        &nbsp;•&nbsp; <a href="#" class="legal-link">Privacy Policy</a>
-        &nbsp;•&nbsp; <a href="#" class="legal-link">Terms</a>
       </small>
     </div>
   </footer>
 
-  <!-- Sticky mobile CTA (optional) -->
-  <div class="sticky-cta" role="region" aria-label="Quick contact">
-    <a class="btn btn--block" href="https://wa.me/919449767262" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">WhatsApp</a>
-    <a class="btn btn--ghost btn--block" href="index.html#lead-capture" aria-label="Request a quote">Request Quote</a>
-  </div>
-
   <script>
-    // Year update
+    // Update year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ===== Mobile hamburger behavior (matches index.html) =====
+    (function () {
+      const navToggle = document.getElementById('nav-toggle');
+      const backdrop  = document.querySelector('.drawer-backdrop');
+      const isMobile  = () => window.innerWidth <= 980;
+
+      const closeDrawer = () => { if (navToggle) navToggle.checked = false; };
+      const closeMobileDropdowns = () =>
+        document.querySelectorAll('.mobile-drawer .nav-item.dropdown.open')
+          .forEach(el => el.classList.remove('open'));
+
+      // Click outside (backdrop) closes drawer
+      if (backdrop) {
+        backdrop.addEventListener('click', () => { closeMobileDropdowns(); closeDrawer(); });
+      }
+
+      // Toggle dropdown inside the mobile drawer
+      document.querySelectorAll('.mobile-drawer .nav-item.dropdown > a[aria-haspopup="true"]').forEach(a => {
+        a.addEventListener('click', (e) => {
+          if (!isMobile()) return;
+          e.preventDefault();
+          const item = a.parentElement;
+          const nowOpen = item.classList.toggle('open');
+          // close other open dropdowns
+          item.parentElement.querySelectorAll('.nav-item.dropdown.open').forEach(o => { if (o !== item) o.classList.remove('open'); });
+          a.setAttribute('aria-expanded', nowOpen ? 'true' : 'false');
+        });
+      });
+
+      // Close drawer when clicking a normal link inside the drawer
+      document.querySelector('.mobile-drawer')?.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+        if (!link) return;
+        // If clicking the dropdown trigger, toggle handled above (do not close)
+        if (link.matches('.nav-item.dropdown > a')) return;
+        closeMobileDropdowns();
+        closeDrawer();
+      });
+
+      // Close on hash change, ESC and when resizing to desktop
+      window.addEventListener('hashchange', () => { closeMobileDropdowns(); closeDrawer(); });
+      window.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeMobileDropdowns(); closeDrawer(); } });
+      window.addEventListener('resize', () => { if (!isMobile()) { closeMobileDropdowns(); closeDrawer(); } });
+    })();
   </script>
 </body>
 </html>
