@@ -12,7 +12,7 @@
   overflow: hidden;
   background:
     linear-gradient(180deg, rgba(28,22,18,.45), rgba(22,16,12,.55)),
-    var(--hero-url, url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=1600&auto=format&fit=crop'))
+    var(--hero-url, url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=1600&auto-format&fit=crop'))
     center / cover no-repeat;
 }
 @media (max-width: 640px){
@@ -35,7 +35,7 @@
   font-size: clamp(2.2rem, 4.2vw, 3rem);
   font-weight: 700;
   letter-spacing: .02em;
-  color: #fff !important;
+  color: #fff !important;             /* override any inherited green */
   text-shadow: 0 3px 10px rgba(0,0,0,.55), 0 1px 2px rgba(0,0,0,.35);
 }
 .coffee-hero p{
@@ -74,7 +74,7 @@
 /* Alternating grid: equal columns on desktop */
 .spec__grid{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;     /* equal width */
   grid-template-areas: "media body";
   gap: 24px;
   align-items: start;
@@ -99,7 +99,7 @@
   width: 100%;
   height: auto;
   display: block;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 4 / 3;                /* desktop: consistent height */
   object-fit: cover;
 }
 
@@ -114,7 +114,7 @@
   font-family: "Inter", system-ui, sans-serif;
 }
 
-/* Tables */
+/* Tables (Barque-like) */
 .spec-table{
   width: 100%;
   border-collapse: collapse;
@@ -138,89 +138,92 @@
 }
 .spec-table tbody tr:nth-child(odd) td{ background: #fffaf6; }
 
-/* Mobile stack for spec cards only */
+/* ===== Mobile-only fixes ===== */
 @media (max-width: 980px){
+  /* keep the 1-column stack */
   .spec__grid{
     grid-template-columns: 1fr;
     grid-template-areas:
       "media"
       "body";
   }
-  .spec__media img{ aspect-ratio: 16 / 10; }
+
+  /* Ensure tiny images don't collapse:
+     give the media box a minimum height and let the image fill it */
+  .spec__media{
+    position: relative;
+    min-height: 220px;     /* adjust to 200–260px if desired */
+    overflow: hidden;
+    border-radius: 12px;
+  }
+  .spec__media img{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;     /* preserves proportions, fills box */
+    aspect-ratio: auto;    /* override desktop ratio on mobile */
+    display: block;
+  }
 }
-
-/* =========================================================
-   MOBILE-ONLY: Hamburger, drawer & dropdown (mirrors index)
-   ========================================================= */
+/* =========================
+   MOBILE-ONLY FIXES (<=980px)
+   Center cards + media and
+   neutralize the alternating rules
+   ========================= */
 @media (max-width: 980px){
-  /* submenu container (inside the combined drawer) */
-  /* Hamburger on right and clickable; morph to X when open */
-  .hamburger{
-    display:block;position:absolute;right:16px;left:auto;top:20px;z-index:140;cursor:pointer;
-    width:28px;height:22px;display:grid;place-items:center;
-  }
-  #nav-toggle:checked + .hamburger span{transform:rotate(45deg)}
-  #nav-toggle:checked + .hamburger span:before{transform:rotate(90deg);top:0}
-  #nav-toggle:checked + .hamburger span:after{opacity:0}
-  #nav-toggle:checked ~ .mobile-drawer{ display:flex; }
 
-  /* Logo smaller, shifted left */
-  .brand--center{
-    width:74px;height:74px;transform:translateY(14px);margin-left:12px;margin-right:auto;z-index:90;
+  /* 1) Neutralize the left/right alternation on mobile */
+  .spec__grid,
+  .spec:nth-of-type(even) .spec__grid{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "media"
+      "body";
   }
-  .brand--center img{height:44px}
 
-  /* Hide desktop navs; use sliding drawer */
-  .nav--left,.nav--right{display:none !important;}
+  /* 2) Center the whole card block */
+  .spec{
+    max-width: 640px;        /* keep a nice reading width */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-  .mobile-drawer{
-    position:fixed;top:var(--header-h);bottom:0;right:0;left:auto;
-    width:min(86vw,360px);
-    transform:translateX(100%); /* start off-canvas on right */
-    transition:transform .28s ease-out;
-    display:flex;flex-direction:column;gap:6px;padding:16px 14px;
-    background:rgba(0,0,0,.94);backdrop-filter:saturate(1.05) blur(2px);
-    z-index:130;overflow:auto;
-    box-shadow:-12px 0 22px rgba(0,0,0,.25);
+  /* 3) Center the figure/media for all cards */
+  .spec__media{
+    display: block;          /* remove any flex/grid alignment inherited */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;      /* safe fallback */
   }
-  #nav-toggle:checked ~ .mobile-drawer{transform:translateX(0)} /* slide in right->left */
-  /* Backdrop to close on outside click */
-  .drawer-backdrop{
-    position:fixed;inset:var(--header-h) 0 0 0;background:rgba(0,0,0,.35);
-    opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:120;
+  /* In case any even-card overrides were adding side margins, kill them */
+  .spec:nth-of-type(even) .spec__media{
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
-  #nav-toggle:checked ~ .drawer-backdrop{opacity:1;pointer-events:auto}
 
-  .mobile-drawer a{
-    color:#fff;font-weight:800;text-transform:uppercase;letter-spacing:.02em;
-    padding:12px 10px;border-radius:10px;text-decoration:none;
+  /* 4) Make the image responsive and centered */
+  .spec__media img{
+    display: block;
+    max-width: 100%;
+    width: 92vw;             /* fills but respects side padding */
+    max-width: 420px;        /* nice size on phones */
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 14px;
   }
-  .mobile-drawer a:active,.mobile-drawer a:focus{outline:2px solid rgba(255,255,255,.25);outline-offset:3px}
-
-  /* Dropdown inside drawer: distinct look from top-level items */
-  .mobile-drawer .nav-item{width:100%}
-  .mobile-drawer .nav-item > a{
-    display:flex;align-items:center;justify-content:space-between;gap:10px;
+}
+/* ===== Mobile image crop fix (match desktop) ===== */
+@media (max-width: 980px){
+  .spec__media img{
+    aspect-ratio: 4 / 3 !important;  /* same as desktop */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: 50% 50%;        /* center the crop */
+    display: block;
   }
-  .mobile-drawer .nav-item .menu{
-    position:static;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
-    border-radius:10px;padding:6px;margin:6px 2px 4px;display:none;
-  }
-  .mobile-drawer .nav-item.open .menu{display:block}
-  .mobile-drawer .menu a{
-    font-weight:600; /* smaller weight */
-    font-size:.95rem; /* smaller size to differentiate */
-    text-transform:none; /* differentiate from nav */
-    padding:10px 12px 10px 14px;border-radius:8px;display:block;
-  }
-  .mobile-drawer .menu a::before{
-    content:"•"; margin-right:8px; opacity:.75;
-  }
-  .mobile-drawer .menu a:hover{background:rgba(255,255,255,.10)}
-  .mobile-drawer .nav-item.dropdown i.fa-caret-down{transition:transform .2s ease}
-  .mobile-drawer .nav-item.dropdown.open i.fa-caret-down{transform:rotate(180deg)}
-
-  /* Keep header above hero so hamburger stays clickable */
-  .site-header.style-bar{z-index:150}
-  .hero{position:relative;z-index:1}
 }
