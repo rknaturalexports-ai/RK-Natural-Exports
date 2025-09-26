@@ -48,6 +48,18 @@
         <a href="index.html#reach">Global Reach</a>
         <a href="index.html#lead-capture">Contact Us</a>
       </nav>
+	   <!-- Combined mobile drawer (only shown on mobile) -->
+<div class="mobile-drawer">
+  <!-- Left group links -->
+  <a href="#hero">Home</a>
+  <a href="#about">About Us</a>
+  <a href="#products">Products</a>
+
+  <!-- Right group links -->
+  <a href="#quality">What We Do?</a>
+  <a href="#reach">Global Reach</a>
+  <a href="#lead-capture">Contact Us</a>
+</div>
     </div>
   </header>
 
@@ -328,19 +340,43 @@
     <div class="container foot-bottom">
       <small>
         © <span id="year"></span> RK Natural Exports. All rights reserved.
-        &nbsp;•&nbsp; <a href="#" class="legal-link">Privacy Policy</a>
-        &nbsp;•&nbsp; <a href="#" class="legal-link">Terms</a>
       </small>
     </div>
   </footer>
 
-  <div class="sticky-cta" role="region" aria-label="Quick contact">
-    <a class="btn btn--block" href="https://wa.me/919449767262" target="_blank" rel="noopener">WhatsApp</a>
-    <a class="btn btn--ghost btn--block" href="index.html#lead-capture">Request Quote</a>
-  </div>
-
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+  <script>
+  (function () {
+    const navToggle = document.getElementById('nav-toggle');
+    if (!navToggle) return;
+
+    // Close drawer when any link inside mobile drawer (or old panels) is clicked
+    document.addEventListener('click', (e) => {
+      if (
+        e.target.closest('.mobile-drawer a') ||
+        e.target.closest('.nav--left a') ||
+        e.target.closest('.nav--right a')
+      ) {
+        navToggle.checked = false;
+      }
+    });
+
+    // Close on hash changes from anchor links
+    window.addEventListener('hashchange', () => (navToggle.checked = false));
+
+    // Close on Esc
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') navToggle.checked = false;
+    });
+
+    // Close if we resize to desktop
+    const closeOnResize = () => {
+      if (window.innerWidth > 980) navToggle.checked = false;
+    };
+    window.addEventListener('resize', closeOnResize);
+  })();
+</script>
 </body>
 </html>
