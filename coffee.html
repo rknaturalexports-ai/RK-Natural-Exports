@@ -3,24 +3,47 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Coffee Specifications | RK Natural Exports</title>
+  <title>RK Natural Exports | Coffee, Tea, Pepper & Areca Plates from Chikkamagaluru, India</title>
+  <meta name="description" content="RK Natural Exports is a farm-direct exporter of coffee, tea, pepper, arecanut and eco-friendly areca leaf plates from Chikkamagaluru, India. IEC & Coffee Board registered exporter with verified shipments." />
 
-  <!-- Fonts (match home) -->
+  <!-- Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome (match home) -->
+  <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
 
-  <!-- Site-wide styles (your existing) -->
-  <link rel="stylesheet" href="styles.css">
-  <!-- Page-local styles -->
-  <link rel="stylesheet" href="coffee.css">
+  <!-- JSON-LD (Organization) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "RK Natural Exports",
+    "url": "https://rknatuaralexports.com",
+    "logo": "https://i.ibb.co/ZzJpf8mk/RK-logo.png",
+    "telephone": "+91-94497-67262",
+    "email": "rknaturalexports@gmail.com",
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=61580130311213",
+      "https://www.linkedin.com/in/venu-r-gowda-761464373/",
+      "https://www.instagram.com/"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Chikkamagaluru",
+      "addressRegion": "Karnataka",
+      "addressCountry": "IN"
+    }
+  }
+  </script>
 </head>
 <body>
 
-  <!-- ===== Header / Nav (same as home) ===== -->
+  <!-- ===== Header / Nav (center logo) ===== -->
   <header class="site-header style-bar">
     <div class="container nav-centered">
       <!-- Mobile toggle -->
@@ -29,380 +52,372 @@
 
       <!-- Left group -->
       <nav class="nav nav--left" aria-label="Primary">
-        <a href="index.html#hero">Home</a>
-        <a href="index.html#about">About Us</a>
-        <div class="nav-item dropdown">
-          <a href="index.html#products" aria-haspopup="true">Products <i class="fa-solid fa-caret-down" aria-hidden="true"></i></a>
-          <div class="menu" role="menu">
-            <a href="coffee.html" role="menuitem">Coffee</a>
-            <a href="tea.html" role="menuitem">Tea</a>
-            <a href="index.html#products" role="menuitem">Pepper</a>
-            <a href="index.html#products" role="menuitem">Areca Plates</a>
-          </div>
-        </div>
+        <a href="#hero">Home</a>
+        <a href="#about">About Us</a>
+<!-- Products dropdown (index.html) -->
+<div class="nav-item dropdown">
+  <a href="#products" aria-haspopup="true">Products <i class="fa-solid fa-caret-down" aria-hidden="true"></i></a>
+  <div class="menu" role="menu">
+    <!-- Update this line -->
+    <a href="coffee.html" role="menuitem">Coffee</a>
+	<a href="tea.html" role="menuitem">Tea</a>
+
+    <!-- (Optional) keep others local or point them to their own pages later) -->
+    <a href="#products" role="menuitem">Pepper</a>
+    <a href="#products" role="menuitem">Areca Plates</a>
+  </div>
+</div>
+
       </nav>
 
       <!-- Centered logo badge -->
-      <a href="index.html#hero" class="brand brand--center" aria-label="RK Natural Exports - Home">
+      <a href="#hero" class="brand brand--center" aria-label="RK Natural Exports - Home">
         <img src="https://i.ibb.co/ZzJpf8mk/RK-logo.png" alt="RK Natural Exports logo" loading="lazy">
       </a>
 
       <!-- Right group -->
       <nav class="nav nav--right" aria-label="Secondary">
-        <a href="index.html#quality">What We Do?</a>
-        <a href="index.html#reach">Global Reach</a>
-        <a href="index.html#lead-capture">Contact Us</a>
+        <a href="#quality">What We Do?</a>
+        <a href="#reach">Global Reach</a>
+        <a href="#lead-capture">Contact Us</a>
       </nav>
     </div>
   </header>
 
-  <!-- ===== Coffee Hero (450px height) ===== -->
-  <!-- Swap --hero-url if you prefer a different banner image -->
-  <section class="coffee-hero" style="--hero-url: url('https://flb-public.s3.ap-south-1.amazonaws.com/Vibez_Coffee_estate_3.jpeg')">
-    <div class="coffee-hero__overlay"></div>
-    <div class="coffee-hero__inner">
-      <h1>Coffee</h1>
-      <p>Arabica &amp; Robusta • Washed &amp; Cherry • Export-grade</p>
+  <!-- ===== HERO (full screen) ===== -->
+  <section id="hero" class="hero">
+    <video class="hero__video" autoplay muted playsinline loop
+           poster="https://images.unsplash.com/photo-1512568400610-62da28bc8a13?q=80&w=1200&auto=format&fit=crop">
+      <source src="https://www.barque.in/wp-content/uploads/2024/11/IMG_4904-1-1.mp4" type="video/mp4">
+    </video>
+    <div class="hero__overlay"></div>
+
+    <div class="hero__content container">
+      <h1>Farm-Direct Exports from the Heart of Chikkamagaluru</h1>
+      <p class="cred-badge">
+        IEC &amp; Coffee Board registered exporter • Verified global shipments
+      </p>
+      <p class="hero-sub">Coffee, tea, spices &amp; eco-friendly areca plates — ethically sourced and quality-checked at origin.</p>
+
+      <!-- Dual CTAs -->
+      <div class="hero__cta">
+        <a href="#lead-capture" class="btn btn--lg" aria-label="Get Samples">Get Samples</a>
+      </div>
     </div>
   </section>
 
-  <!-- ===== Specs content (Alternating Layout) ===== -->
-  <main class="coffee-wrap">
-    <div class="frame">
+  <!-- ===== ABOUT (content left, image right) ===== -->
+  <section id="about" class="about section">
+    <div class="container">
 
-      <!-- =========== Arabica Washed Plantation AAA =========== -->
-      <article class="spec">
-        <h3 class="spec__title">ARABICA PLANTATION AAA</h3>
-        <div class="spec__grid">
-          <figure class="spec__media">
-            <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Arabica%20Washed%20Plantation%20AAA.jpg" alt="Arabica Plantation AAA">
+      <h2 class="about-title">Welcome to RK Natural Exports</h2>
+
+      <div class="grid two about-grid">
+        <!-- Left copy -->
+        <div class="about__copy">
+          <p class="about-intro">
+            We partner with smallholder farmers and estates across Chikkamagaluru to deliver coffee, tea, and spices that respect people and planet.
+            Our team oversees post-harvest handling, grading, and export-grade packing so every lot ships to spec.
+          </p>
+
+          <ul class="about-points">
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <div>
+                <strong>Direct from Origin</strong>
+                <p>Products grown in the lush Western Ghats, known for rich soil and pristine climate.</p>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <div>
+                <strong>Sustainably Grown</strong>
+                <p>Supporting farmers with fair practices and eco-friendly methods.</p>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <div>
+                <strong>Custom Solutions</strong>
+                <p>Tailored packaging, lot selection, and logistics to match your market needs.</p>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <div>
+                <strong>Global Standards</strong>
+                <p>Compliance with food safety, quality certifications, and traceability.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right image (smaller card) -->
+        <div class="about__image">
+          <figure>
+            <img
+              src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Tea%2C%20Coffee%2C%20Pepper.png"
+              alt="Post-harvest grading of coffee and pepper, Chikkamagaluru"
+              loading="lazy" decoding="async">
           </figure>
-          <div class="spec__body">
-            <p class="spec__intro">
-              Highest-grade washed Arabica with a smooth, medium body and layered notes of chocolate, caramel and citrus.
-              Clean cup and refined finish—ideal for premium blends and specialty roasts.
-            </p>
+        </div>
+      </div>
 
-            <h4 class="spec__h4">Product Specifications</h4>
-            <table class="spec-table">
-              <thead><tr><th>Grade</th><th>Cleaned Garbled</th></tr></thead>
-              <tbody>
-                <tr><td>Sieve</td><td>7.5mm</td></tr>
-                <tr><td>Screen</td><td>19</td></tr>
-                <tr><td>PB</td><td>1%</td></tr>
-                <tr><td>Triage</td><td>1%</td></tr>
-                <tr><td>Black Seeds</td><td>NIL</td></tr>
-                <tr><td>Moisture</td><td>12% Max.</td></tr>
-              </tbody>
-            </table>
+      <!-- Mission line across full width -->
+      <p class="mission-full">
+        <em>At RK Natural Exports, our mission is simple: to connect the world with the authentic flavors of India while creating value for farmers and buyers alike.</em>
+      </p>
+    </div>
+  </section>
 
-            <h4 class="spec__h4">Packaging &amp; Quantity</h4>
-            <table class="spec-table">
-              <thead><tr><th>Type</th><th>Quantity</th></tr></thead>
-              <tbody><tr><td>Jute Bags</td><td>60 kgs</td></tr></tbody>
-            </table>
+  <!-- ===== PRODUCTS (flip cards with specs) ===== -->
+  <section id="products" class="products section">
+    <div class="container">
+      <h2>Products We Export</h2>
+      <p class="section-lead">Consistent quality, clear specs, on-time documentation.</p>
+
+      <div class="product-grid">
+        <!-- Coffee -->
+        <article class="card flip">
+          <div class="flip__inner">
+            <div class="flip__face flip__front">
+              <img src="https://5.imimg.com/data5/RK/RO/MY-16286785/green-coffee-beans-arabica-aaa-1000x1000.jpg" alt="Coffee beans" loading="lazy" decoding="async">
+              <div class="card__body"><h3>Coffee</h3></div>
+            </div>
+            <div class="flip__face flip__back">
+              <h3>Coffee</h3>
+              <ul class="meta">
+                <li>Grades: AAA, AA, A, PB (Screen 17/18)</li>
+                <li>Forms: Cherry &amp; Parchment • Arabica &amp; Robusta</li>
+                <li>MOQ: 5 MT • Lead time: 7–14 days</li>
+                <li>Packing: Jute/HDPE 50kg • Palletized on request</li>
+                <li>Docs: Phyto &amp; Fumigation • COO • FSSAI (if required)</li>
+                <li>Pricing: FOB/CIF on request</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Tea -->
+        <article class="card flip">
+          <div class="flip__inner">
+            <div class="flip__face flip__front">
+              <img src="https://bobatime.in/wp-content/uploads/2022/05/thai-pre-mix.webp" alt="Tea" loading="lazy" decoding="async">
+              <div class="card__body"><h3>Tea</h3></div>
+            </div>
+            <div class="flip__face flip__back">
+              <h3>Tea</h3>
+              <ul class="meta">
+                <li>CTC &amp; Orthodox • Estate-fresh</li>
+                <li>Moisture ≤ 8% • Clean cup</li>
+                <li>Packs: Bulk sacks or retail packs</li>
+                <li>MOQ: 3 MT • Lead time: 7–10 days</li>
+                <li>Docs: Phyto &amp; Fumigation • COO</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Pepper -->
+        <article class="card flip">
+          <div class="flip__inner">
+            <div class="flip__face flip__front">
+              <img src="https://i.ibb.co/nqpfdC76/Pepper.jpg" alt="Black pepper" loading="lazy" decoding="async">
+              <div class="card__body"><h3>Pepper</h3></div>
+            </div>
+            <div class="flip__face flip__back">
+              <h3>Pepper</h3>
+              <ul class="meta">
+                <li>Black &amp; White Pepper</li>
+                <li>Density ≥ 550 g/l • Low defects</li>
+                <li>Cleaned &amp; graded • Sorted</li>
+                <li>Packs: 25/50kg woven bags</li>
+                <li>Docs: Phyto &amp; Fumigation • COO</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Areca Plates -->
+        <article class="card flip">
+          <div class="flip__inner">
+            <div class="flip__face flip__front">
+              <img src="https://www.suppdock.com/wp-content/uploads/2023/02/12-inch-areca-leaf-round-plates-500x500-1.jpg" alt="Areca leaf plates" loading="lazy" decoding="async">
+              <div class="card__body"><h3>Areca Leaf Plates</h3></div>
+            </div>
+            <div class="flip__face flip__back">
+              <h3>Areca Leaf Plates</h3>
+              <ul class="meta">
+                <li>Sizes: 4″–12″ • Round/Square</li>
+                <li>Food-safe • Compostable</li>
+                <li>Branding &amp; custom packing</li>
+                <li>MOQ: 5,000 pcs • Lead time: 5–10 days</li>
+                <li>Docs: COO • FSSAI (if required)</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY CHOOSE RK ===== -->
+  <section id="why" class="why section">
+    <div class="container">
+      <p class="kicker">WHY CHOOSE RK NATURAL EXPORTS?</p>
+      <h2 class="why-title">Experience Excellence in Every Shipment</h2>
+      <p class="why-sub">
+        Enjoy farm-direct supply chains, sustainable practices, and transparent documentation—
+        backed by responsive service and reliable logistics.
+      </p>
+
+      <div class="why-grid">
+        <!-- LEFT benefits -->
+        <div class="why-col">
+          <div class="feature">
+            <i class="fa-solid fa-seedling"></i>
+            <div>
+              <h4>Sustainably Sourced</h4>
+              <p>Eco-friendly cultivation and fair, long-term farmer partnerships.</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <i class="fa-solid fa-mug-saucer"></i>
+            <div>
+              <h4>Exceptional Quality</h4>
+              <p>Graded lots, low defects, and consistent specs to your market.</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <i class="fa-solid fa-file-shield"></i>
+            <div>
+              <h4>Transparent Practices</h4>
+              <p>Clear paperwork, traceability, and proactive communication.</p>
+            </div>
           </div>
         </div>
-      </article>
 
-      <!-- =========== Arabica Washed Plantation AA =========== -->
-      <article class="spec">
-        <h3 class="spec__title">ARABICA PLANTATION AA</h3>
-        <div class="spec__grid">
-          <figure class="spec__media">
-            <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Arabica%20Washed%20Plantation%20AA.jpg" alt="Arabica Plantation AA">
-          </figure>
-          <div class="spec__body">
-            <p class="spec__intro">
-              Balanced acidity and sweetness with a clean cup. Reliable size and performance—excellent for medium roasts and consistent blends.
-            </p>
+        <!-- CENTER image -->
+        <figure class="why-hero">
+          <img
+            src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/3ac703cc3b13a06fe6377025ac27a9f365e7a5aa/ChatGPT%20Image%20Sep%2025%2C%202025%2C%2011_05_19%20AM.png"
+            alt="Fresh coffee beans"
+            loading="lazy"
+            decoding="async">
+        </figure>
 
-            <h4 class="spec__h4">Product Specifications</h4>
-            <table class="spec-table">
-              <thead><tr><th>Grade</th><th>Values</th></tr></thead>
-              <tbody>
-                <tr><td>Sieve</td><td>7.5mm</td></tr>
-                <tr><td>Screen</td><td>18</td></tr>
-                <tr><td>PB</td><td>1%</td></tr>
-                <tr><td>Triage</td><td>1%</td></tr>
-                <tr><td>Black Seeds</td><td>NIL</td></tr>
-                <tr><td>Moisture</td><td>12% Max.</td></tr>
-              </tbody>
-            </table>
+        <!-- RIGHT benefits -->
+        <div class="why-col">
+          <div class="feature">
+            <i class="fa-solid fa-people-group"></i>
+            <div>
+              <h4>Community Support</h4>
+              <p>We empower local growers with training and fair compensation.</p>
+            </div>
+          </div>
 
-            <h4 class="spec__h4">Packaging &amp; Quantity</h4>
-            <table class="spec-table">
-              <thead><tr><th>Type</th><th>Quantity</th></tr></thead>
-              <tbody><tr><td>Jute Bags</td><td>60 kgs</td></tr></tbody>
-            </table>
+          <div class="feature">
+            <i class="fa-solid fa-truck-fast"></i>
+            <div>
+              <h4>Timely Deliveries</h4>
+              <p>Reliable logistics—FOB/CIF/DDP per request with smooth documentation.</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <i class="fa-solid fa-handshake-simple"></i>
+            <div>
+              <h4>Customer-Centric</h4>
+              <p>Fast responses, samples on request, and tailored packaging options.</p>
+            </div>
           </div>
         </div>
-      </article>
-
-      <!-- =========== Arabica Washed Plantation A =========== -->
-      <article class="spec">
-        <h3 class="spec__title">ARABICA PLANTATION A</h3>
-        <div class="spec__grid">
-          <figure class="spec__media">
-            <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Arabica%20Washed%20Plantation%20A.jpg" alt="Arabica Plantation A">
-          </figure>
-          <div class="spec__body">
-            <p class="spec__intro">
-              Bright and sweet with aromatic clarity. Versatile in the roaster and dependable for blends where definition and sweetness matter.
-            </p>
-
-            <h4 class="spec__h4">Product Specifications</h4>
-            <table class="spec-table">
-              <thead><tr><th>Grade</th><th>Cleaned Garbled</th></tr></thead>
-              <tbody>
-                <tr><td>Sieve</td><td>7.5mm</td></tr>
-                <tr><td>Screen</td><td>17</td></tr>
-                <tr><td>PB</td><td>1%</td></tr>
-                <tr><td>Triage</td><td>1%</td></tr>
-                <tr><td>Black Seeds</td><td>NIL</td></tr>
-                <tr><td>Moisture</td><td>12% Max.</td></tr>
-              </tbody>
-            </table>
-
-            <h4 class="spec__h4">Packaging &amp; Quantity</h4>
-            <table class="spec-table">
-              <thead><tr><th>Type</th><th>Quantity</th></tr></thead>
-              <tbody><tr><td>Jute Bags</td><td>60 kgs</td></tr></tbody>
-            </table>
-          </div>
-        </div>
-      </article>
-
-      <!-- =========== Arabica Washed Plantation PB =========== -->
-      <article class="spec">
-        <h3 class="spec__title">ARABICA PLANTATION PB</h3>
-        <div class="spec__grid">
-          <figure class="spec__media">
-            <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Arabica%20Washed%20Plantation%20PB.jpg" alt="Arabica Plantation PB">
-          </figure>
-          <div class="spec__body">
-            <p class="spec__intro">
-              Peaberry selection with concentrated flavor and lively cup character. Adds sparkle and sweetness to blends or single-origins.
-            </p>
-
-            <h4 class="spec__h4">Product Specifications</h4>
-            <table class="spec-table">
-              <thead><tr><th>Grade</th><th>Values</th></tr></thead>
-              <tbody>
-                <tr><td>Sieve</td><td>7.5mm</td></tr>
-                <tr><td>Screen</td><td>PB</td></tr>
-                <tr><td>Triage</td><td>1%</td></tr>
-                <tr><td>Black Seeds</td><td>NIL</td></tr>
-                <tr><td>Moisture</td><td>12% Max.</td></tr>
-              </tbody>
-            </table>
-
-            <h4 class="spec__h4">Packaging &amp; Quantity</h4>
-            <table class="spec-table">
-              <thead><tr><th>Type</th><th>Quantity</th></tr></thead>
-              <tbody><tr><td>Jute Bags</td><td>60 kgs</td></tr></tbody>
-            </table>
-          </div>
-        </div>
-      </article>
-
-      <!-- =========== Arabica Cherry C =========== -->
-      <article class="spec">
-        <h3 class="spec__title">ARABICA CHERRY C</h3>
-        <div class="spec__grid">
-          <figure class="spec__media">
-            <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Arabica%20Cherry%20C.jpg" alt="Arabica Cherry C">
-          </figure>
-          <div class="spec__body">
-            <p class="spec__intro">
-              Natural (unwashed) Arabica with rustic sweetness and round body. Suited for darker roasts and blend body enhancement.
-            </p>
-
-            <h4 class="spec__h4">Product Specifications</h4>
-            <table class="spec-table">
-              <thead><tr><th>Grade</th><th>Values</th></tr></thead>
-              <tbody>
-                <tr><td>Processing</td><td>Natural (Cherry)</td></tr>
-                <tr><td>Defects</td><td>To contract</td></tr>
-                <tr><td>Density</td><td>As graded</td></tr>
-                <tr><td>Moisture</td><td>12% Max.</td></tr>
-              </tbody>
-            </table>
-
-            <h4 class="spec__h4">Packaging &amp; Quantity</h4>
-            <table class="spec-table">
-              <thead><tr><th>Type</th><th>Quantity</th></tr></thead>
-              <tbody><tr><td>Jute Bags</td><td>60 kgs</td></tr></tbody>
-            </table>
-          </div>
-        </div>
-      </article>
-
-      <!-- =========== Robusta Cherry AAA =========== -->
-      <article class="spec">
-        <h3 class="spec__title">ROBUSTA CHERRY AAA</h3>
-        <div class="spec__grid">
-          <figure class="spec__media">
-            <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Robusta%20Cherry%20AAA.jpg" alt="Robusta Cherry AAA">
-          </figure>
-          <div class="spec__body">
-            <p class="spec__intro">
-              Top-grade natural Robusta with heavy body and crema-friendly oils. Great for espresso-style blends needing punch and texture.
-            </p>
-
-            <h4 class="spec__h4">Product Specifications</h4>
-            <table class="spec-table">
-              <thead><tr><th>Grade</th><th>Values</th></tr></thead>
-              <tbody>
-                <tr><td>Processing</td><td>Natural (Cherry)</td></tr>
-                <tr><td>Screen</td><td>18+</td></tr>
-                <tr><td>Defects</td><td>To contract</td></tr>
-                <tr><td>Moisture</td><td>12% Max.</td></tr>
-              </tbody>
-            </table>
-
-            <h4 class="spec__h4">Packaging &amp; Quantity</h4>
-            <table class="spec-table">
-              <thead><tr><th>Type</th><th>Quantity</th></tr></thead>
-              <tbody><tr><td>Jute Bags</td><td>60 kgs</td></tr></tbody>
-            </table>
-          </div>
-        </div>
-      </article>
-
-      <!-- =========== Robusta Cherry AA =========== -->
-      <article class="spec">
-        <h3 class="spec__title">ROBUSTA CHERRY AA</h3>
-        <div class="spec__grid">
-          <figure class="spec__media">
-            <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Robusta%20Cherry%20AA.jpg" alt="Robusta Cherry AA">
-          </figure>
-          <div class="spec__body">
-            <p class="spec__intro">
-              Clean natural Robusta with bold body and a strong cup profile. Ideal for building crema and structure in espresso blends.
-            </p>
-
-            <h4 class="spec__h4">Product Specifications</h4>
-            <table class="spec-table">
-              <thead><tr><th>Grade</th><th>Values</th></tr></thead>
-              <tbody>
-                <tr><td>Processing</td><td>Natural (Cherry)</td></tr>
-                <tr><td>Screen</td><td>17/18</td></tr>
-                <tr><td>Defects</td><td>To contract</td></tr>
-                <tr><td>Moisture</td><td>12% Max.</td></tr>
-              </tbody>
-            </table>
-
-            <h4 class="spec__h4">Packaging &amp; Quantity</h4>
-            <table class="spec-table">
-              <thead><tr><th>Type</th><th>Quantity</th></tr></thead>
-              <tbody><tr><td>Jute Bags</td><td>60 kgs</td></tr></tbody>
-            </table>
-          </div>
-        </div>
-      </article>
-
-      <!-- =========== Robusta Cherry A =========== -->
-      <article class="spec">
-        <h3 class="spec__title">ROBUSTA CHERRY A</h3>
-        <div class="spec__grid">
-          <figure class="spec__media">
-            <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Robusta%20Cherry%20A.jpg" alt="Robusta Cherry A">
-          </figure>
-          <div class="spec__body">
-            <p class="spec__intro">
-              Reliable natural Robusta for cost-effective blends—delivers body, crema and intensity.
-            </p>
-
-            <h4 class="spec__h4">Product Specifications</h4>
-            <table class="spec-table">
-              <thead><tr><th>Grade</th><th>Values</th></tr></thead>
-              <tbody>
-                <tr><td>Processing</td><td>Natural (Cherry)</td></tr>
-                <tr><td>Screen</td><td>16/17</td></tr>
-                <tr><td>Defects</td><td>To contract</td></tr>
-                <tr><td>Moisture</td><td>12% Max.</td></tr>
-              </tbody>
-            </table>
-
-            <h4 class="spec__h4">Packaging &amp; Quantity</h4>
-            <table class="spec-table">
-              <thead><tr><th>Type</th><th>Quantity</th></tr></thead>
-              <tbody><tr><td>Jute Bags</td><td>60 kgs</td></tr></tbody>
-            </table>
-          </div>
-        </div>
-      </article>
-
-      <!-- =========== Robusta Cherry PB =========== -->
-      <article class="spec">
-        <h3 class="spec__title">ROBUSTA CHERRY PB</h3>
-        <div class="spec__grid">
-          <figure class="spec__media">
-            <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Robusta%20Cherry%20PB.jpg" alt="Robusta Cherry PB">
-          </figure>
-          <div class="spec__body">
-            <p class="spec__intro">
-              Robusta peaberries selected for intensity and crema. Useful in espresso-forward blends.
-            </p>
-
-            <h4 class="spec__h4">Product Specifications</h4>
-            <table class="spec-table">
-              <thead><tr><th>Grade</th><th>Values</th></tr></thead>
-              <tbody>
-                <tr><td>Processing</td><td>Natural (Cherry)</td></tr>
-                <tr><td>Screen</td><td>PB</td></tr>
-                <tr><td>Defects</td><td>To contract</td></tr>
-                <tr><td>Moisture</td><td>12% Max.</td></tr>
-              </tbody>
-            </table>
-
-            <h4 class="spec__h4">Packaging &amp; Quantity</h4>
-            <table class="spec-table">
-              <thead><tr><th>Type</th><th>Quantity</th></tr></thead>
-              <tbody><tr><td>Jute Bags</td><td>60 kgs</td></tr></tbody>
-            </table>
-          </div>
-        </div>
-      </article>
-
-      <!-- =========== Robusta Washed RP AAA =========== -->
-      <article class="spec">
-        <h3 class="spec__title">ROBUSTA WASHED RP AAA</h3>
-        <div class="spec__grid">
-          <figure class="spec__media">
-            <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Robusta%20Washed%20RP%20AAA.jpg" alt="Robusta Washed RP AAA">
-          </figure>
-          <div class="spec__body">
-            <p class="spec__intro">
-              Washed Robusta of the highest grade with clean profile, dense body and low defect count.
-              Great for structured, crema-rich espresso blends.
-            </p>
-
-            <h4 class="spec__h4">Product Specifications</h4>
-            <table class="spec-table">
-              <thead><tr><th>Grade</th><th>Values</th></tr></thead>
-              <tbody>
-                <tr><td>Processing</td><td>Washed (RP)</td></tr>
-                <tr><td>Screen</td><td>18+</td></tr>
-                <tr><td>Defects</td><td>Very low</td></tr>
-                <tr><td>Moisture</td><td>12% Max.</td></tr>
-              </tbody>
-            </table>
-
-            <h4 class="spec__h4">Packaging &amp; Quantity</h4>
-            <table class="spec-table">
-              <thead><tr><th>Type</th><th>Quantity</th></tr></thead>
-              <tbody><tr><td>Jute Bags</td><td>60 kgs</td></tr></tbody>
-            </table>
-          </div>
-        </div>
-      </article>
+      </div>
 
     </div>
-  </main>
+  </section>
 
-  <!-- ===== Footer (exactly same as home) ===== -->
+  <!-- ===== SOURCING & QUALITY ===== -->
+  <section id="quality" class="quality section">
+    <div class="container grid two">
+      <div>
+        <h2>Sourcing &amp; Quality</h2>
+        <p>At RK Natural Exports, every shipment begins at the source. We work directly with trusted farmers and curing units in Chikkamagaluru, ensuring full traceability from estate to export. Each lot is carefully monitored for moisture, grading, and defects, maintaining consistency that buyers can rely on.</p>
+        <p>To meet international standards, we also partner with accredited third-party labs for advanced testing, covering pesticide residues, heavy metals, and microbiological parameters. This ensures that what reaches you is not just authentic, but safe and globally compliant.</p>
+        <p>Because for us, quality isn’t a checkbox—it’s our promise.</p>
+
+        <div class="compliance-badges" aria-label="Compliance badges">
+          <span class="c-badge"><i class="fa-solid fa-id-card-clip" aria-hidden="true"></i> IEC <em>(available)</em></span>
+          <span class="c-badge"><i class="fa-solid fa-mug-hot" aria-hidden="true"></i> Coffee Board RCMC <em>(available)</em></span>
+          <span class="c-badge"><i class="fa-solid fa-utensils" aria-hidden="true"></i> FSSAI <em>(if applicable)</em></span>
+          <span class="c-badge"><i class="fa-solid fa-passport" aria-hidden="true"></i> COO</span>
+          <span class="c-badge"><i class="fa-solid fa-bug-slash" aria-hidden="true"></i> Fumigation</span>
+          <span class="c-badge"><i class="fa-solid fa-seedling" aria-hidden="true"></i> Phytosanitary</span>
+        </div>
+
+        <div class="pill-list">
+          <span class="pill"><i class="fa-solid fa-vial" aria-hidden="true"></i> Lab Testing</span>
+          <span class="pill"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Traceability</span>
+          <span class="pill"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> Export-grade Packing</span>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="t-item"><span class="dot"></span><div><h4>Harvest &amp; Primary</h4><p>Selective picking, drying &amp; curing at origin.</p></div></div>
+        <div class="t-item"><span class="dot"></span><div><h4>Grading &amp; Specs</h4><p>Screen size, density &amp; moisture checks to contract.</p></div></div>
+        <div class="t-item"><span class="dot"></span><div><h4>Compliance Docs</h4><p>Phyto, fumigation, COO; FSSAI if required.</p></div></div>
+        <div class="t-item"><span class="dot"></span><div><h4>Packing &amp; Dispatch</h4><p>Jute/HDPE sacks, cartons or pallets • FOB/CIF/DDP.</p></div></div>
+      </div>
+    </div>
+
+    <!-- Trusted by strip -->
+    <div class="container trusted-by">
+      <div class="trusted-text"><i class="fa-solid fa-globe" aria-hidden="true"></i> Supplying buyers in <strong>Europe</strong>, <strong>Gulf</strong> &amp; <strong>Southeast Asia</strong></div>
+      <div class="doc-proof">
+        <span><i class="fa-regular fa-file-lines" aria-hidden="true"></i> Sample COO</span>
+        <span><i class="fa-regular fa-file-lines" aria-hidden="true"></i> Fumigation</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GLOBAL REACH ===== -->
+  <section id="reach" class="reach section section--dark">
+    <div class="container">
+      <h2>Global Reach &amp; Logistics</h2>
+      <p class="section-lead">Reliable shipping from Indian ports with transparent documentation.</p>
+
+      <div class="chip-row">
+        <span class="chip">Middle East</span>
+        <span class="chip">Europe</span>
+        <span class="chip">North America</span>
+        <span class="chip">Africa</span>
+        <span class="chip">Southeast Asia</span>
+        <span class="chip">Oceania</span>
+      </div>
+
+      <div class="features">
+        <div class="f-item">
+          <i class="fa-solid fa-ship"></i>
+          <h4>FOB / CIF</h4>
+          <p>We quote the incoterms that work for your lanes and budgets.</p>
+        </div>
+        <div class="f-item">
+          <i class="fa-solid fa-box-open"></i>
+          <h4>Packaging Options</h4>
+          <p>Jute/HDPE sacks, vacuum bags, cartons, retail packs, palletization.</p>
+        </div>
+        <div class="f-item">
+          <i class="fa-solid fa-file-invoice"></i>
+          <h4>Documentation</h4>
+          <p>Phytosanitary &amp; Fumigation certificates issued per shipment • COO available.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER with CTAs + Lead capture ===== -->
   <footer class="site-footer">
     <div class="container footer-grid">
 
@@ -427,11 +442,11 @@
       <div>
         <h6 class="foot-heading">Quick Links</h6>
         <ul class="link-list">
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#products">Products</a></li>
-          <li><a href="index.html#quality">Sourcing & Quality</a></li>
-          <li><a href="index.html#reach">Global Reach</a></li>
-          <li><a href="index.html#lead-capture">Contact</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#quality">Sourcing & Quality</a></li>
+          <li><a href="#reach">Global Reach</a></li>
+          <li><a href="#lead-capture">Contact</a></li>
         </ul>
       </div>
 
@@ -489,15 +504,38 @@
     </div>
   </footer>
 
-  <!-- Sticky mobile CTA (optional) -->
+  <!-- Sticky mobile CTA -->
   <div class="sticky-cta" role="region" aria-label="Quick contact">
     <a class="btn btn--block" href="https://wa.me/919449767262" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">WhatsApp</a>
-    <a class="btn btn--ghost btn--block" href="index.html#lead-capture" aria-label="Request a quote">Request Quote</a>
+    <a class="btn btn--ghost btn--block" href="#lead-capture" aria-label="Request a quote">Request Quote</a>
   </div>
 
   <script>
-    // Year update
+    // Auto year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mailto fallback for local file usage
+    (function () {
+      const form = document.querySelector('.lead-form');
+      if (!form) return;
+
+      form.addEventListener('submit', function (e) {
+        if (location.protocol === 'file:') {
+          e.preventDefault();
+          const to = 'rknaturalexports@gmail.com';
+          const subject = 'New Quote Request - RK Natural Exports';
+
+          const data = new FormData(form);
+          const lines = [];
+          for (const [k, v] of data.entries()) {
+            if (k.startsWith('_')) continue;
+            lines.push(`${k}: ${String(v).trim()}`);
+          }
+          const body = encodeURIComponent(lines.join('\r\n'));
+          window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${body}`;
+        }
+      });
+    })();
   </script>
 </body>
 </html>
