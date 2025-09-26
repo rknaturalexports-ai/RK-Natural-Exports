@@ -43,7 +43,7 @@
 </head>
 <body>
 
-  <!-- ===== Header / Nav (center logo on desktop, tuned for mobile) ===== -->
+  <!-- ===== Header / Nav ===== -->
   <header class="site-header style-bar">
     <div class="container nav-centered">
       <!-- Mobile toggle -->
@@ -68,7 +68,7 @@
         </div>
       </nav>
 
-      <!-- Centered logo badge (desktop) / nudged left on mobile via CSS -->
+      <!-- Logo (desktop centered, mobile left/compact) -->
       <a href="#hero" class="brand brand--center" aria-label="RK Natural Exports - Home">
         <img src="https://i.ibb.co/ZzJpf8mk/RK-logo.png" alt="RK Natural Exports logo" loading="lazy">
       </a>
@@ -101,6 +101,9 @@
         <a href="#reach">Global Reach</a>
         <a href="#lead-capture">Contact Us</a>
       </nav>
+
+      <!-- Backdrop to close drawer on outside click (mobile only) -->
+      <div class="drawer-backdrop" aria-hidden="true"></div>
     </div>
   </header>
 
@@ -119,14 +122,13 @@
       </p>
       <p class="hero-sub">Coffee, tea, spices &amp; eco-friendly areca plates — ethically sourced and quality-checked at origin.</p>
 
-      <!-- CTA -->
       <div class="hero__cta">
         <a href="#lead-capture" class="btn btn--lg" aria-label="Get Samples">Get Samples</a>
       </div>
     </div>
   </section>
 
-  <!-- ===== ABOUT (content left, image right) ===== -->
+  <!-- ===== ABOUT ===== -->
   <section id="about" class="about section">
     <div class="container">
 
@@ -189,7 +191,7 @@
     </div>
   </section>
 
-  <!-- ===== PRODUCTS (flip cards with specs) ===== -->
+  <!-- ===== PRODUCTS ===== -->
   <section id="products" class="products section">
     <div class="container">
       <h2>Products We Export</h2>
@@ -543,23 +545,26 @@
     })();
   </script>
 
-  <!-- Mobile drawer: toggle dropdown, close on link click; desktop unaffected -->
+  <!-- Mobile interactions (desktop unaffected) -->
   <script>
   (function () {
     const navToggle = document.getElementById('nav-toggle');
+    const drawer = document.querySelector('.mobile-drawer');
+    const backdrop = document.querySelector('.drawer-backdrop');
     const isMobile = () => window.matchMedia('(max-width: 980px)').matches;
 
     const closeDrawer = () => { if (navToggle) navToggle.checked = false; };
+    const drawerOpen = () => navToggle && navToggle.checked;
 
     // Toggle Products dropdown inside the mobile drawer
     document.querySelectorAll('.mobile-drawer .nav-item.dropdown > a').forEach(trigger => {
       trigger.addEventListener('click', (e) => {
-        if (!isMobile()) return;        // desktop uses hover
-        e.preventDefault();
+        if (!isMobile()) return; // desktop uses hover
+        e.preventDefault();      // keep drawer open
         const item = trigger.parentElement;
         const nowOpen = item.classList.toggle('open');
         trigger.setAttribute('aria-expanded', nowOpen ? 'true' : 'false');
-        // Close any siblings
+        // Close siblings
         item.parentElement.querySelectorAll('.nav-item.dropdown.open').forEach(o => {
           if (o !== item) {
             o.classList.remove('open');
@@ -570,14 +575,48 @@
       });
     });
 
-    // Close drawer when any link inside it is clicked (including submenu links)
+    // Close drawer on submenu click or any non-dropdown link
     document.querySelectorAll('.mobile-drawer a[href]').forEach(link => {
-      link.addEventListener('click', () => closeDrawer());
+      link.addEventListener('click', (e) => {
+        // If this link is a dropdown trigger, don't close
+        if (link.matches('.nav-item.dropdown > a[aria-haspopup="true"]')) return;
+        closeDrawer();
+      });
+    });
+
+    // Close on backdrop click
+    if (backdrop) {
+      backdrop.addEventListener('click', closeDrawer);
+    }
+
+    // Close when clicking outside header/drawer (but not on the hamburger)
+    document.addEventListener('click', (e) => {
+      if (!isMobile() || !drawerOpen()) return;
+      const headerArea = document.querySelector('.nav-centered');
+      const hamburgerLabel = document.querySelector('label.hamburger');
+      const withinHeader = headerArea && headerArea.contains(e.target);
+      const onHamburger = hamburgerLabel && hamburgerLabel.contains(e.target);
+      if (!withinHeader && !onHamburger) {
+        closeDrawer();
+      }
     });
 
     // Close on Esc or when resizing to desktop
     window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
     window.addEventListener('resize', () => { if (!isMobile()) closeDrawer(); });
+
+    // ===== Flip cards: tap to toggle (and toggle back) on mobile; desktop stays hover-based =====
+    const enableCardToggles = () => {
+      document.querySelectorAll('.card.flip').forEach(card => {
+        card.addEventListener('click', (e) => {
+          if (!isMobile()) return; // desktop uses hover only
+          // Prevent accidental toggles when clicking links inside the card
+          if ((e.target.closest('a'))) return;
+          card.classList.toggle('is-flipped');
+        });
+      });
+    };
+    enableCardToggles();
   })();
   </script>
 </body>
