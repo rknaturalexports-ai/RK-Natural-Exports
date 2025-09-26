@@ -47,6 +47,13 @@ small, .small{font-size:.9rem}
 .btn--block{width:100%}
 .btn--lg{padding:14px 22px;font-size:1.05rem}
 
+/* --- Force-hide mobile drawer/backdrop on desktop --- */
+.mobile-drawer,
+.drawer-backdrop{
+  display:none;
+}
+
+
 /* ===== Header ===== */
 .site-header.style-bar{
   position:absolute;top:0;left:0;right:0;z-index:60;
@@ -255,6 +262,7 @@ small, .small{font-size:.9rem}
   #nav-toggle:checked + .hamburger span{transform:rotate(45deg)}
   #nav-toggle:checked + .hamburger span:before{transform:rotate(90deg);top:0}
   #nav-toggle:checked + .hamburger span:after{opacity:0}
+  #nav-toggle:checked ~ .mobile-drawer{ display:flex; }
 
   /* Logo smaller, shifted left */
   .brand--center{
