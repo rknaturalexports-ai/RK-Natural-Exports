@@ -67,21 +67,14 @@ small, .small{font-size:.9rem}
 .brand--center{width:96px;height:96px;background:#fff;border-radius:999px;display:grid;place-items:center;box-shadow:0 8px 22px rgba(0,0,0,.18);transform:translateY(22px);margin:0 auto}
 .brand--center img{height:60px;width:auto}
 
-/* Mobile menu */
+/* Mobile toggle base */
 .hamburger{display:none;cursor:pointer}
 .hamburger span,.hamburger span:before,.hamburger span:after{display:block;background:#fff;height:2px;width:24px;border-radius:2px;position:relative}
 .hamburger span:before,.hamburger span:after{content:"";position:absolute;left:0}
 .hamburger span:before{top:-7px}.hamburger span:after{top:7px}
 #nav-toggle{display:none}
-@media (max-width:980px){
-  .brand--center{width:84px;height:84px;transform:translateY(18px)}
-  .brand--center img{height:56px}
-  .hamburger{display:block;position:absolute;left:16px;top:20px;z-index:70}
-  .nav--left,.nav--right{position:fixed;inset:var(--header-h) 0 auto 0;background:rgba(0,0,0,.92);display:none;flex-direction:column;padding:14px;gap:4px}
-  #nav-toggle:checked ~ .nav--left,#nav-toggle:checked ~ .nav--right{display:flex}
-}
 
-/* balance left/right spacing around logo */
+/* balance left/right spacing around logo (desktop) */
 .nav--left{justify-content:flex-end;padding-right:var(--logo-clearance)}
 .nav--right{justify-content:flex-start;padding-left:var(--logo-clearance)}
 
@@ -95,19 +88,13 @@ small, .small{font-size:.9rem}
 .hero-sub{color:#f0f0f0;margin:.6rem auto 1.2rem;max-width:58ch}
 .cred-badge{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:6px 12px;color:#fff;margin:.4rem 0 .8rem}
 
-/* ===== About (content left, image right) ===== */
+/* ===== About ===== */
 .about-title{ text-align:center; margin-bottom:10px; }
-.about-grid{
-  grid-template-columns: 1.25fr .9fr;        /* left copy bigger */
-  align-items: center;
-}
+.about-grid{ grid-template-columns: 1.25fr .9fr; align-items:center; }
 .about-intro{max-width:60ch;margin-bottom:12px}
 .about__image img{
-  max-width:520px;                           /* smaller image */
-  width:100%;
-  border-radius:16px;
-  box-shadow:0 14px 36px rgba(0,0,0,.12);
-  border:6px solid #fff;
+  max-width:520px; width:100%;
+  border-radius:16px; box-shadow:0 14px 36px rgba(0,0,0,.12); border:6px solid #fff;
 }
 .about-points{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:12px}
 .about-points li{display:grid;grid-template-columns:26px 1fr;gap:10px;align-items:start}
@@ -135,35 +122,21 @@ small, .small{font-size:.9rem}
 .flip__back .meta{list-style:none;padding:0;margin:8px 0 0}
 .flip__back .meta li{margin:6px 0}
 
-/* ===== WHY CHOOSE (paper bg + center image) ===== */
+/* ===== WHY CHOOSE ===== */
 .why{
-  position: relative;
-  padding: 70px 0;
-  background: #f5efe6
-    url('https://www.nescafe.com/au/sites/default/files/2024-04/Untitled-5%20copy_6_0.jpg')
-    center/cover fixed;
+  position: relative; padding: 70px 0;
+  background: #f5efe6 url('https://www.nescafe.com/au/sites/default/files/2024-04/Untitled-5%20copy_6_0.jpg') center/cover fixed;
   isolation: isolate;
 }
-.why::before{
-  content:""; position:absolute; inset:0;
-  background: rgba(245,240,233,.88);
-  z-index:-1;
-}
-.why .kicker{
-  text-align:center; letter-spacing:.22em; font-weight:700;
-  font-size:.8rem; color:#7a5742; margin:-6px 0 6px;
-}
-.why-title{
-  text-align:center; font-family:"Playfair Display",serif; color:#1b1f1a;
-  font-size:clamp(1.7rem,3.2vw,2.4rem); margin:0;
-}
+.why::before{ content:""; position:absolute; inset:0; background: rgba(245,240,233,.88); z-index:-1; }
+.why .kicker{ text-align:center; letter-spacing:.22em; font-weight:700; font-size:.8rem; color:#7a5742; margin:-6px 0 6px; }
+.why-title{ text-align:center; font-family:"Playfair Display",serif; color:#1b1f1a; font-size:clamp(1.7rem,3.2vw,2.4rem); margin:0; }
 .why-sub{ text-align:center; max-width:70ch; margin:10px auto 26px; color:#5a5f57; }
 .why-grid{ display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:26px 42px; }
 .why-hero{ margin:0; display:grid; place-items:center; }
 .why-hero img{
   width:min(540px,40vw); aspect-ratio:1/1; object-fit:cover;
-  border-radius:24px; box-shadow:0 18px 42px rgba(0,0,0,.18);
-  border:6px solid rgba(255,255,255,.75);
+  border-radius:24px; box-shadow:0 18px 42px rgba(0,0,0,.18); border:6px solid rgba(255,255,255,.75);
 }
 .why-col{ display:grid; gap:20px; }
 .feature{ display:grid; grid-template-columns:42px 1fr; gap:12px; align-items:start; }
@@ -179,7 +152,7 @@ small, .small{font-size:.9rem}
   .why-hero img{ width:min(520px,88vw); aspect-ratio:auto; }
 }
 
-/* ===== Quality ===== */
+/* ===== Quality & Reach ===== */
 .compliance-badges{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 14px}
 .c-badge{display:inline-flex;align-items:center;gap:6px;background:#eef4ee;border:1px solid #dbe6dc;color:#21402a;padding:6px 10px;border-radius:999px;font-weight:600}
 .c-badge em{font-style:normal;opacity:.9}
@@ -189,16 +162,14 @@ small, .small{font-size:.9rem}
 .t-item{display:flex;gap:12px;background:#fff;border-radius:14px;padding:14px;box-shadow:var(--shadow)}
 .t-item .dot{width:12px;height:12px;background:var(--accent);border-radius:50%;margin-top:8px}
 
-/* Trusted by / proof strip */
 .trusted-by{display:flex;justify-content:space-between;align-items:center;margin-top:22px;padding:12px 14px;border:1px solid #e7e1d8;background:#fbf8f1;border-radius:14px}
 .trusted-text{font-weight:600;color:#3a553b}
 .doc-proof{display:flex;gap:12px;flex-wrap:wrap}
 .doc-proof span{display:inline-flex;gap:8px;align-items:center;background:#fff;border:1px solid #e6e2da;border-radius:10px;padding:6px 10px}
 
-/* ===== Reach (coffee beans bg overlay) ===== */
+/* ===== Reach dark section ===== */
 .section--dark{
-  position:relative;
-  color:#f3ece6;
+  position:relative; color:#f3ece6;
   background:
     linear-gradient(180deg, rgba(46,35,28,.78), rgba(26,20,16,.88)),
     url('https://www.nescafe.com/au/sites/default/files/2024-04/Untitled-5%20copy_6_0.jpg')
@@ -240,129 +211,130 @@ small, .small{font-size:.9rem}
   border-color:#99b19d; box-shadow:0 0 0 3px rgba(56,90,58,.15)
 }
 
-/* ===== Sticky mobile CTA ===== */
-.sticky-cta{
-  position:fixed;left:0;right:0;bottom:0;display:none;
-  gap:10px;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
-  padding:10px;border-top:1px solid #e7e1d8;z-index:70;
-}
-.sticky-cta .btn{flex:1}
-@media (max-width:980px){.sticky-cta{display:flex}}
-
 /* ===== Accessibility focus ring ===== */
 :where(a,button,[role="button"],input,textarea):focus-visible{
   outline:3px solid rgba(56,90,58,.45);
   outline-offset:3px;border-radius:8px;
 }
+
 /* =========================
-   PRODUCTS: 1 row (4 across)
+   PRODUCTS: responsive grid
    ========================= */
+.product-grid{ display:grid; gap:24px; grid-template-columns:1fr; }
+@media (min-width:700px){ .product-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (min-width:1100px){ .product-grid{ grid-template-columns:repeat(4,minmax(0,1fr)); } }
+@media (min-width:1400px){ .container{ max-width:1400px; } }
 
-/* Base: mobile first (1-up) */
-.product-grid{
-  display: grid;
-  gap: 24px;
-  grid-template-columns: 1fr;
-}
-
-/* Tablet: 2-up */
-@media (min-width: 700px){
-  .product-grid{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-/* Desktop: force a single row, 4-up */
-@media (min-width: 1100px){
-  .product-grid{
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
-/* Optional: give a little more canvas so 4-up breathes nicely */
-@media (min-width: 1400px){
-  .container{
-    max-width: 1400px;  /* or 1440/1500 if you prefer wider */
-  }
-}
 /* =========================
    Footer background image
    ========================= */
 .site-footer{
-  position: relative;
-  isolation: isolate; /* keeps pseudo elements inside */
-  color: #f4efe7;      /* footer text color on dark bg */
-  /* fallback color while image loads */
-  background: #201811;
+  position: relative; isolation: isolate; color:#f4efe7; background:#201811;
 }
-
-/* Background image + overlay */
 .site-footer::before{
-  content: "";
-  position: absolute; inset: 0;
-  z-index: -2;
-  background:
-    url("https://www.nescafe.com/au/sites/default/files/2024-04/Untitled-5%20copy_6_0.jpg")
-    center / cover no-repeat;
-  filter: saturate(1.05) contrast(1.05);
+  content:""; position:absolute; inset:0; z-index:-2;
+  background:url("https://www.nescafe.com/au/sites/default/files/2024-04/Untitled-5%20copy_6_0.jpg") center / cover no-repeat;
+  filter:saturate(1.05) contrast(1.05);
 }
-
-/* Tinted overlay for readability */
 .site-footer::after{
-  content: "";
-  position: absolute; inset: 0;
-  z-index: -1;
-  background:
-    linear-gradient(180deg, rgba(20,14,10,.75), rgba(20,14,10,.85));
+  content:""; position:absolute; inset:0; z-index:-1;
+  background: linear-gradient(180deg, rgba(20,14,10,.75), rgba(20,14,10,.85));
 }
-
-/* Keep cards/boxes readable on the image */
-.footer-grid,
-.foot-bottom{
-  /* remove solid footer background if you had one */
-  background: transparent;
-}
-
-/* Links and headings on dark footer */
+.footer-grid,.foot-bottom{ background:transparent; }
 .site-footer a{ color:#fff; opacity:.95; }
 .site-footer a:hover{ opacity:1; text-decoration:underline; }
 .site-footer .foot-heading{ color:#fff; }
-
-/* Buttons stand out on dark */
-.site-footer .btn{
-  background:#3d6a42;   /* your accent-ish green */
-  color:#fff !important;
-  border:0;
+.site-footer .btn{ background:#3d6a42; color:#fff !important; border:0; }
+.site-footer .btn.btn--ghost{ background:transparent; border:2px solid #e8e2d8; color:#fff !important; }
+.site-footer .social a{ background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.25); color:#fff; }
+.site-footer .social a:hover{ background:rgba(255,255,255,.25); }
+.site-footer .lead-form input, .site-footer .lead-form textarea{
+  background:rgba(255,255,255,.92); color:#1a1a1a; border:1px solid rgba(255,255,255,.6);
 }
-.site-footer .btn.btn--ghost{
-  background:transparent;
-  border:2px solid #e8e2d8;
-  color:#fff !important;
-}
-
-/* Social pills */
-.site-footer .social a{
-  background: rgba(255,255,255,.15);
-  border:1px solid rgba(255,255,255,.25);
-  color:#fff;
-}
-.site-footer .social a:hover{
-  background: rgba(255,255,255,.25);
-}
-
-/* Lead form on dark background */
-.site-footer .lead-form input,
-.site-footer .lead-form textarea{
-  background: rgba(255,255,255,.92);
-  color:#1a1a1a;
-  border: 1px solid rgba(255,255,255,.6);
-}
-.site-footer .lead-form input::placeholder,
-.site-footer .lead-form textarea::placeholder{ color:#757575; }
-
-/* Bottom strip */
-.foot-bottom{
-  border-top:1px solid rgba(255,255,255,.18);
-  color:#eee;
-}
+.site-footer .lead-form input::placeholder, .site-footer .lead-form textarea::placeholder{ color:#757575; }
+.foot-bottom{ border-top:1px solid rgba(255,255,255,.18); color:#eee; }
 .foot-bottom .legal-link{ color:#fff; }
+
+/* =========================================================
+   MOBILE-ONLY FIXES (≤980px) — keeps desktop intact
+   ========================================================= */
+@media (max-width:980px){
+
+  /* Hamburger on the RIGHT and clickable */
+  .hamburger{
+    display:block;
+    position:absolute;
+    right:16px;
+    left:auto;
+    top:20px;
+    z-index:120;
+    cursor:pointer;
+  }
+
+  /* Shift the brand/logo slightly left for a balanced mobile header */
+  .brand--center{
+    margin-left:16px;
+    margin-right:auto;
+    transform:translateY(18px);
+    z-index:90;
+  }
+
+  /* Use one mobile drawer; hide desktop nav panels to avoid overlap */
+  .nav--left, .nav--right{ display:none !important; }
+
+  .mobile-drawer{
+    position:fixed;
+    inset:var(--header-h) 0 auto 0;
+    display:none;
+    flex-direction:column;
+    gap:6px;
+    padding:16px;
+    background:rgba(0,0,0,.94);
+    backdrop-filter:saturate(1.05) blur(2px);
+    z-index:100;
+    max-height:calc(100vh - var(--header-h));
+    overflow:auto;
+  }
+  #nav-toggle:checked ~ .mobile-drawer{ display:flex; }
+
+  .mobile-drawer a{
+    color:#fff;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.02em;
+    padding:12px 10px;
+    border-radius:10px;
+    text-decoration:none;
+  }
+  .mobile-drawer a:active,
+  .mobile-drawer a:focus{
+    outline:2px solid rgba(255,255,255,.25);
+    outline-offset:3px;
+  }
+
+  /* Products dropdown inside the mobile drawer */
+  .mobile-drawer .nav-item{ width:100%; }
+  .mobile-drawer .nav-item > a{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+  }
+  .mobile-drawer .nav-item .menu{
+    position:static; background:transparent; border:0;
+    padding:6px 0 4px; margin-top:6px; display:none;
+  }
+  .mobile-drawer .nav-item.open .menu{ display:block; }
+
+  .mobile-drawer .menu a{
+    color:#fff; padding:10px 12px; border-radius:8px;
+  }
+  .mobile-drawer .menu a:hover{ background:rgba(255,255,255,.08); }
+
+  .mobile-drawer .nav-item.dropdown i.fa-caret-down{ transition:transform .2s ease; }
+  .mobile-drawer .nav-item.dropdown.open i.fa-caret-down{ transform:rotate(180deg); }
+
+  /* Ensure header sits above hero and hamburger stays clickable */
+  .site-header.style-bar{ z-index:110; }
+  .hero{ position:relative; z-index:1; }
+
+  /* Slightly reframe hero video on mobile so subject is centered */
+  .hero__video{ object-position:40% 42%; }
+}
