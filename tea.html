@@ -19,17 +19,22 @@
 </head>
 <body>
 
-  <!-- ===== Header / Nav (same as Home) ===== -->
+  <!-- ===== Header / Nav (same as Home/Coffee) ===== -->
   <header class="site-header style-bar">
     <div class="container nav-centered">
+      <!-- Mobile toggle -->
       <input id="nav-toggle" type="checkbox" aria-label="toggle navigation">
       <label for="nav-toggle" class="hamburger" aria-label="Open menu"><span></span></label>
 
+      <!-- Left group -->
       <nav class="nav nav--left" aria-label="Primary">
         <a href="index.html#hero">Home</a>
         <a href="index.html#about">About Us</a>
+
         <div class="nav-item dropdown">
-          <a href="index.html#products" aria-haspopup="true">Products <i class="fa-solid fa-caret-down" aria-hidden="true"></i></a>
+          <a href="index.html#products" aria-haspopup="true" aria-expanded="false">
+            Products <i class="fa-solid fa-caret-down" aria-hidden="true"></i>
+          </a>
           <div class="menu" role="menu">
             <a href="coffee.html" role="menuitem">Coffee</a>
             <a href="tea.html" role="menuitem">Tea</a>
@@ -39,35 +44,49 @@
         </div>
       </nav>
 
+      <!-- Center logo -->
       <a href="index.html#hero" class="brand brand--center" aria-label="RK Natural Exports - Home">
         <img src="https://i.ibb.co/ZzJpf8mk/RK-logo.png" alt="RK Natural Exports logo" loading="lazy">
       </a>
 
+      <!-- Right group -->
       <nav class="nav nav--right" aria-label="Secondary">
         <a href="index.html#quality">What We Do?</a>
         <a href="index.html#reach">Global Reach</a>
         <a href="index.html#lead-capture">Contact Us</a>
       </nav>
-	   <!-- Combined mobile drawer (only shown on mobile) -->
-<div class="mobile-drawer">
-  <!-- Left group links -->
-  <a href="#hero">Home</a>
-  <a href="#about">About Us</a>
-  <a href="#products">Products</a>
+	        <!-- Combined MOBILE drawer (shown only on mobile) -->
+      <div class="mobile-drawer">
+        <a href="index.html#hero">Home</a>
+        <a href="index.html#about">About Us</a>
 
-  <!-- Right group links -->
-  <a href="#quality">What We Do?</a>
-  <a href="#reach">Global Reach</a>
-  <a href="#lead-capture">Contact Us</a>
-</div>
+        <!-- Mobile dropdown for Products -->
+        <div class="nav-item dropdown">
+          <a href="index.html#products" aria-haspopup="true" aria-expanded="false">
+            Products <i class="fa-solid fa-caret-down" aria-hidden="true"></i>
+          </a>
+          <div class="menu" role="menu">
+            <a href="coffee.html" role="menuitem">Coffee</a>
+            <a href="tea.html" role="menuitem">Tea</a>
+            <a href="index.html#products" role="menuitem">Pepper</a>
+            <a href="index.html#products" role="menuitem">Areca Plates</a>
+          </div>
+        </div>
+
+        <a href="index.html#quality">What We Do?</a>
+        <a href="index.html#reach">Global Reach</a>
+        <a href="index.html#lead-capture">Contact Us</a>
+      </div>
+
+      <!-- Backdrop for click-outside-to-close on mobile -->
+      <div class="drawer-backdrop" aria-hidden="true"></div>
     </div>
   </header>
-
   <!-- ===== Tea Hero (450px height) ===== -->
   <section class="tea-hero" style="--hero-url: url('https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Tea%20Banner.png')">
     <div class="tea-hero__overlay"></div>
     <div class="tea-hero__inner">
-      <h1>Black Tea</h1> 
+      <h1>Black Tea</h1>
       <p>CTC &amp; Orthodox Grades • Dust to Whole Leaf</p>
     </div>
   </section>
@@ -344,39 +363,74 @@
     </div>
   </footer>
 
+  <!-- Year -->
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
+  <!-- Mobile nav: same behavior as index/coffee -->
   <script>
   (function () {
     const navToggle = document.getElementById('nav-toggle');
-    if (!navToggle) return;
+    const isMobile = () => window.innerWidth <= 980;
 
-    // Close drawer when any link inside mobile drawer (or old panels) is clicked
+    const closeDrawer = () => { if (navToggle) navToggle.checked = false; };
+    const closeMobileDropdowns = () =>
+      document.querySelectorAll('.nav-item.dropdown.open')
+        .forEach(el => el.classList.remove('open'));
+
+    // Click handling inside header navs
     document.addEventListener('click', (e) => {
-      if (
-        e.target.closest('.mobile-drawer a') ||
-        e.target.closest('.nav--left a') ||
-        e.target.closest('.nav--right a')
-      ) {
-        navToggle.checked = false;
+      const link = e.target.closest('.nav--left a, .nav--right a');
+      if (!link) return;
+
+      const isDropdownTrigger = !!link.closest('.nav-item.dropdown > a');
+      if (isMobile() && isDropdownTrigger) {
+        e.preventDefault();
+        const item = link.parentElement;
+        const nowOpen = item.classList.toggle('open');
+        item.parentElement.querySelectorAll('.nav-item.dropdown.open').forEach(o => {
+          if (o !== item) o.classList.remove('open');
+        });
+        link.setAttribute('aria-expanded', nowOpen ? 'true' : 'false');
+        return;
+      }
+
+      closeMobileDropdowns();
+      closeDrawer();
+    });
+
+    // Safety: direct click on dropdown trigger
+    document.querySelectorAll('.nav-item.dropdown > a[aria-haspopup="true"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        if (!isMobile()) return;
+        e.preventDefault();
+        const item = a.parentElement;
+        const nowOpen = item.classList.toggle('open');
+        item.parentElement.querySelectorAll('.nav-item.dropdown.open').forEach(o => {
+          if (o !== item) o.classList.remove('open');
+        });
+        a.setAttribute('aria-expanded', nowOpen ? 'true' : 'false');
+      });
+    });
+
+    // Close drawer on outside click
+    document.addEventListener('click', (e) => {
+      if (!isMobile()) return;
+      const header = document.querySelector('.site-header');
+      const clickedInsideHeader = e.target.closest('.site-header');
+      if (navToggle.checked && header && !clickedInsideHeader) {
+        closeMobileDropdowns();
+        closeDrawer();
       }
     });
 
-    // Close on hash changes from anchor links
-    window.addEventListener('hashchange', () => (navToggle.checked = false));
-
-    // Close on Esc
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') navToggle.checked = false;
-    });
-
-    // Close if we resize to desktop
-    const closeOnResize = () => {
-      if (window.innerWidth > 980) navToggle.checked = false;
-    };
-    window.addEventListener('resize', closeOnResize);
+    // Close on hash, Esc, or resizing to desktop
+    window.addEventListener('hashchange', () => { closeMobileDropdowns(); closeDrawer(); });
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeMobileDropdowns(); closeDrawer(); } });
+    window.addEventListener('resize', () => { if (!isMobile()) { closeMobileDropdowns(); closeDrawer(); } });
   })();
-</script>
+  </script>
 </body>
 </html>
+
