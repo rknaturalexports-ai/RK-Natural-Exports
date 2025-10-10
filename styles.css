@@ -135,7 +135,7 @@ small, .small{font-size:.9rem}
 /* ===== WHY CHOOSE ===== */
 .why{
   position:relative;padding:70px 0;
-  background:#f5efe6 url('https://www.nescafe.com/au/sites/default/files/2024-04/Untitled-5%20copy_6_0.jpg') center/cover fixed;
+  background:#f5efe6 url('https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Home%20Page%20Background%20Image.webp') center/cover fixed;
   isolation:isolate;
 }
 .why::before{content:"";position:absolute;inset:0;background:rgba(245,240,233,.88);z-index:-1}
@@ -175,7 +175,7 @@ small, .small{font-size:.9rem}
   position:relative;color:#f3ece6;
   background:
     linear-gradient(180deg, rgba(46,35,28,.78), rgba(26,20,16,.88)),
-    url('https://www.nescafe.com/au/sites/default/files/2024-04/Untitled-5%20copy_6_0.jpg') center/cover fixed;
+    url('https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Home%20Page%20Background%20Image.webp') center/cover fixed;
 }
 .section--dark h2{color:#fff}
 .section--dark p,.section--dark li,.section--dark span{color:#e9e1db}
@@ -229,7 +229,7 @@ small, .small{font-size:.9rem}
 .site-footer{position:relative;isolation:isolate;color:#f4efe7;background:#201811}
 .site-footer::before{
   content:"";position:absolute;inset:0;z-index:-2;
-  background:url("https://www.nescafe.com/au/sites/default/files/2024-04/Untitled-5%20copy_6_0.jpg") center/cover no-repeat;
+  background:url("https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Home%20Page%20Background%20Image.webp") center/cover no-repeat;
   filter:saturate(1.05) contrast(1.05);
 }
 .site-footer::after{
