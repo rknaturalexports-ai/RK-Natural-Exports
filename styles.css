@@ -331,3 +331,33 @@ small, .small{font-size:.9rem}
   .card.flip:hover .flip__inner{transform:none}  /* turn off hover flip on touch */
   .card.flip.is-flipped .flip__inner{transform:rotateY(180deg)}
 }
+/* Footer: add space above social icons */
+.site-footer .social{
+  margin-top: 14px;   /* creates space below the buttons */
+}
+
+@media (max-width: 980px){
+  .site-footer .social{
+    margin-top: 16px; /* a touch more room on small screens */
+  }
+}
+/* Footer text color tweaks */
+.site-footer .foot-brand .tagline { color: #a0a09b; }
+.site-footer .foot-heading + .link-list,
+.site-footer .foot-heading + .link-list li,
+.site-footer .foot-heading + .link-list li strong { color: #a0a09b; }
+.site-footer .lead-form label span { color: #a0a09b; }
+/* Footer color tweaks (Quick Links + Contact + Registered Office) */
+.site-footer .footer-grid .link-list a {            /* Quick Links links */
+  color: #a0a09b !important;
+}
+
+.site-footer .contact-links li,                      /* Contact rows */
+.site-footer .contact-links a,
+.site-footer .contact-links i {
+  color: #a0a09b !important;
+}
+
+.site-footer .muted.small {                          /* Registered office note */
+  color: #a0a09b !important;
+}
