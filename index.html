@@ -63,7 +63,6 @@
             <a href="coffee.html" role="menuitem">Coffee</a>
             <a href="tea.html" role="menuitem">Tea</a>
             <a href="#products" role="menuitem">Pepper</a>
-            <a href="#products" role="menuitem">Areca Plates</a>
           </div>
         </div>
       </nav>
@@ -202,8 +201,10 @@
         <article class="card flip">
           <div class="flip__inner">
             <div class="flip__face flip__front">
-              <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Coffee%20Flip%20Card.jpg" alt="Coffee beans" loading="lazy" decoding="async">
-              <div class="card__body"><h3>Coffee</h3></div>
+              <div class="image-hover-area">
+                <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Coffee%20Flip%20Card.jpg" alt="Coffee beans" loading="lazy" decoding="async">
+              </div>
+              <div class="card__body"><h3><a href="coffee.html">Coffee</a></h3></div>
             </div>
             <div class="flip__face flip__back">
               <h3>Coffee</h3>
@@ -215,6 +216,7 @@
                 <li>Docs: Phyto &amp; Fumigation • COO • FSSAI (if required)</li>
                 <li>Pricing: FOB/CIF on request</li>
               </ul>
+              <a href="coffee.html" class="more-details-link">&gt;&gt;More details</a>
             </div>
           </div>
         </article>
@@ -223,8 +225,10 @@
         <article class="card flip">
           <div class="flip__inner">
             <div class="flip__face flip__front">
-              <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Tea%20Flip%20Card.webp" alt="Tea" loading="lazy" decoding="async">
-              <div class="card__body"><h3>Tea</h3></div>
+              <div class="image-hover-area">
+                <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Tea%20Flip%20Card.webp" alt="Tea" loading="lazy" decoding="async">
+              </div>
+              <div class="card__body"><h3><a href="tea.html">Tea</a></h3></div>
             </div>
             <div class="flip__face flip__back">
               <h3>Tea</h3>
@@ -235,6 +239,7 @@
                 <li>MOQ: 3 MT • Lead time: 7–10 days</li>
                 <li>Docs: Phyto &amp; Fumigation • COO</li>
               </ul>
+              <a href="tea.html" class="more-details-link">&gt;&gt;More details</a>
             </div>
           </div>
         </article>
@@ -243,8 +248,10 @@
         <article class="card flip">
           <div class="flip__inner">
             <div class="flip__face flip__front">
-              <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Pepper.jpg" alt="Black pepper" loading="lazy" decoding="async">
-              <div class="card__body"><h3>Pepper</h3></div>
+              <div class="image-hover-area">
+                <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Pepper.jpg" alt="Black pepper" loading="lazy" decoding="async">
+              </div>
+              <div class="card__body"><h3><a href="#products">Pepper</a></h3></div>
             </div>
             <div class="flip__face flip__back">
               <h3>Pepper</h3>
@@ -255,29 +262,12 @@
                 <li>Packs: 25/50kg woven bags</li>
                 <li>Docs: Phyto &amp; Fumigation • COO</li>
               </ul>
+              <a href="#products" class="more-details-link">&gt;&gt;More details</a>
             </div>
           </div>
         </article>
 
-        <!-- Areca Plates -->
-        <article class="card flip">
-          <div class="flip__inner">
-            <div class="flip__face flip__front">
-              <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Areca%20Leaf%20Plate%20Flip.jpg" alt="Areca leaf plates" loading="lazy" decoding="async">
-              <div class="card__body"><h3>Areca Leaf Plates</h3></div>
-            </div>
-            <div class="flip__face flip__back">
-              <h3>Areca Leaf Plates</h3>
-              <ul class="meta">
-                <li>Sizes: 4″–12″ • Round/Square</li>
-                <li>Food-safe • Compostable</li>
-                <li>Branding &amp; custom packing</li>
-                <li>MOQ: 5,000 pcs • Lead time: 5–10 days</li>
-                <li>Docs: COO • FSSAI (if required)</li>
-              </ul>
-            </div>
-          </div>
-        </article>
+
       </div>
     </div>
   </section>
@@ -606,7 +596,39 @@
 
     // ===== Flip cards: tap to toggle (and toggle back) on mobile; desktop stays hover-based =====
     const enableCardToggles = () => {
+      // Handle image hover for flip behavior on desktop
       document.querySelectorAll('.card.flip').forEach(card => {
+        const imageArea = card.querySelector('.image-hover-area');
+        const cardBody = card.querySelector('.card__body');
+        let isImageHovered = false;
+        
+        if (imageArea && cardBody) {
+          // When hovering over image area
+          imageArea.addEventListener('mouseenter', () => {
+            if (!isMobile()) {
+              isImageHovered = true;
+              card.classList.add('image-hovered');
+            }
+          });
+          
+          // When leaving the entire card, reset
+          card.addEventListener('mouseleave', () => {
+            if (!isMobile()) {
+              isImageHovered = false;
+              card.classList.remove('image-hovered');
+            }
+          });
+          
+          // Prevent flip when hovering over text area (but don't remove flip if already flipped)
+          cardBody.addEventListener('mouseenter', (e) => {
+            if (!isMobile() && !isImageHovered) {
+              // Only prevent flip if we didn't start from image
+              e.stopPropagation();
+            }
+          });
+        }
+        
+        // Mobile tap behavior (existing)
         card.addEventListener('click', (e) => {
           if (!isMobile()) return; // desktop uses hover only
           // Prevent accidental toggles when clicking links inside the card
