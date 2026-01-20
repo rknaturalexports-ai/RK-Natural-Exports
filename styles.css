@@ -117,20 +117,57 @@ small, .small{font-size:.9rem}
 .products{background:var(--beige)}
 .products h2{text-align:center}
 .products .section-lead{text-align:center}
-.product-grid{display:grid;gap:22px;grid-template-columns:1fr;margin-top:26px}
-@media (min-width:640px){.product-grid{grid-template-columns:repeat(2,1fr)}}
-@media (min-width:1200px){.product-grid{grid-template-columns:repeat(4,1fr)}}
+.product-grid{display:grid;gap:32px;grid-template-columns:1fr;margin-top:32px;justify-items:center;place-items:center}
+@media (min-width:640px){.product-grid{grid-template-columns:repeat(2,1fr);gap:28px}}
+@media (min-width:1200px){.product-grid{grid-template-columns:repeat(3,1fr);max-width:1000px;margin-left:auto;margin-right:auto;gap:40px;justify-content:center}}
 
 /* Flip cards */
 .card.flip{perspective:1200px;border-radius:16px;overflow:visible}
 .flip__inner{position:relative;transform-style:preserve-3d;transition:transform .6s}
 .flip__face{backface-visibility:hidden;border-radius:16px;box-shadow:var(--shadow);overflow:hidden;background:#fff}
-.flip__front img{aspect-ratio:4/3;object-fit:cover}
+.image-hover-area{position:relative}
+.image-hover-area img{aspect-ratio:4/3;object-fit:cover;width:100%;display:block}
 .flip__front .card__body{padding:14px}
 .flip__back{position:absolute;inset:0;padding:16px;transform:rotateY(180deg);display:flex;flex-direction:column;justify-content:flex-start}
-.card.flip:hover .flip__inner{transform:rotateY(180deg)}
+
+/* Remove default card hover flip */
+.card.flip:hover .flip__inner{transform:none}
+
+/* Flip controlled by JavaScript class */
+.card.flip.image-hovered .flip__inner{transform:rotateY(180deg)}
+
 .flip__back .meta{list-style:none;padding:0;margin:8px 0 0}
 .flip__back .meta li{margin:6px 0}
+
+/* More details link styling */
+.more-details-link{
+  position:absolute;
+  top:16px;
+  right:16px;
+  font-size:0.8rem;
+  color:var(--accent);
+  text-decoration:none;
+  font-weight:600;
+  transition:color .2s ease;
+  font-family:"Inter",system-ui,sans-serif;
+}
+.more-details-link:hover{
+  color:var(--deep);
+  text-decoration:underline;
+}
+
+/* Clickable text styling */
+.card__body h3 a{
+  color:var(--deep);
+  text-decoration:none;
+  font-family:"Playfair Display",serif;
+  font-weight:inherit;
+  transition:color .2s ease;
+}
+.card__body h3 a:hover{
+  color:var(--accent);
+  text-decoration:underline;
+}
 
 /* ===== WHY CHOOSE ===== */
 .why{
@@ -218,9 +255,9 @@ small, .small{font-size:.9rem}
 /* =========================
    PRODUCTS grid
    ========================= */
-.product-grid{display:grid;gap:24px;grid-template-columns:1fr}
-@media (min-width:700px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (min-width:1100px){.product-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.product-grid{display:grid;gap:32px;grid-template-columns:1fr;justify-items:center;place-items:center}
+@media (min-width:700px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}}
+@media (min-width:1100px){.product-grid{grid-template-columns:repeat(3,minmax(0,1fr));max-width:1000px;margin-left:auto;margin-right:auto;gap:40px;justify-content:center}}
 @media (min-width:1400px){.container{max-width:1400px}}
 
 /* =========================
