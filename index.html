@@ -270,6 +270,120 @@
     </div>
   </section>
 
+  <!-- ===== PHOTO GALLERY ===== -->
+  <section id="gallery" class="gallery section">
+    <div class="container">
+      <h2 class="gallery-title">Our Products in Pictures</h2>
+      <p class="section-lead">From farm to export — see the quality we deliver</p>
+
+      <!-- Tab Navigation -->
+      <div class="gallery-tabs">
+        <button class="gallery-tab active" data-category="coffee">
+          <i class="fa-solid fa-mug-hot"></i> Coffee
+        </button>
+        <button class="gallery-tab" data-category="tea">
+          <i class="fa-solid fa-leaf"></i> Tea
+        </button>
+        <button class="gallery-tab" data-category="pepper">
+          <i class="fa-solid fa-pepper-hot"></i> Pepper
+        </button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid">
+        <!-- Coffee Images -->
+        <div class="gallery-item" data-category="coffee">
+          <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Coffee%20Flip%20Card.jpg" alt="Premium coffee beans" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Premium Coffee Beans</h4>
+            <p>Arabica & Robusta varieties</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="coffee">
+          <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&q=80" alt="Coffee plantation" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Coffee Plantation</h4>
+            <p>Estate-sourced from Chikkamagaluru</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="coffee">
+          <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600&q=80" alt="Coffee processing" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Processing & Grading</h4>
+            <p>Quality-checked at origin</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="coffee">
+          <img src="https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?w=600&q=80" alt="Green coffee beans" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Clean Green Beans</h4>
+            <p>Export-ready packaging</p>
+          </div>
+        </div>
+
+        <!-- Tea Images -->
+        <div class="gallery-item" data-category="tea" style="display:none">
+          <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Tea%20Flip%20Card.webp" alt="Premium tea leaves" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Premium Tea Leaves</h4>
+            <p>CTC & Orthodox varieties</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="tea" style="display:none">
+          <img src="https://images.unsplash.com/photo-1563822249366-3efbb5c8f9e6?w=600&q=80" alt="Tea plantation" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Tea Gardens</h4>
+            <p>Fresh from estates</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="tea" style="display:none">
+          <img src="https://images.unsplash.com/photo-1597318130878-aa7e6f93b9a1?w=600&q=80" alt="Tea processing" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Tea Processing</h4>
+            <p>Traditional methods</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="tea" style="display:none">
+          <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=600&q=80" alt="Packaged tea" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Export Packaging</h4>
+            <p>Bulk & retail options</p>
+          </div>
+        </div>
+
+        <!-- Pepper Images -->
+        <div class="gallery-item" data-category="pepper" style="display:none">
+          <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Pepper.jpg" alt="Black pepper" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Premium Black Pepper</h4>
+            <p>High density, low defects</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="pepper" style="display:none">
+          <img src="https://images.unsplash.com/photo-1599909533730-f9d7e4f2c2e5?w=600&q=80" alt="Pepper plantation" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Pepper Vines</h4>
+            <p>Grown in Western Ghats</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="pepper" style="display:none">
+          <img src="https://images.unsplash.com/photo-1599909533730-f9d7e4f2c2e5?w=600&q=80" alt="White pepper" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>White Pepper</h4>
+            <p>Cleaned & sorted</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="pepper" style="display:none">
+          <img src="https://images.unsplash.com/photo-1506368249639-73a05d6f6488?w=600&q=80" alt="Pepper packaging" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Export Ready</h4>
+            <p>25/50kg woven bags</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== WHY CHOOSE RK ===== -->
   <section id="why" class="why section">
     <div class="container">
@@ -636,6 +750,40 @@
       });
     };
     enableCardToggles();
+  })();
+  </script>
+
+  <!-- Gallery Tab Switching -->
+  <script>
+  (function(){
+    const tabs = document.querySelectorAll('.gallery-tab');
+    const items = document.querySelectorAll('.gallery-item');
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function(){
+        const category = this.getAttribute('data-category');
+        
+        // Update active tab
+        tabs.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        
+        // Filter gallery items with fade effect
+        items.forEach((item, index) => {
+          const itemCategory = item.getAttribute('data-category');
+          
+          if(itemCategory === category){
+            // Reset animation
+            item.style.animation = 'none';
+            item.offsetHeight; // Trigger reflow
+            item.style.animation = null;
+            item.style.animationDelay = (index * 0.1) + 's';
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
   })();
   </script>
 </body>
