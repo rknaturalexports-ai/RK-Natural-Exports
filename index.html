@@ -65,6 +65,8 @@
             <a href="#products" role="menuitem">Pepper</a>
           </div>
         </div>
+
+        <a href="gallery.html">Gallery</a>
       </nav>
 
       <!-- Logo (desktop centered, mobile left/compact) -->
@@ -95,10 +97,11 @@
           </div>
         </div>
 
+        <a href="gallery.html">Gallery</a>
         <a href="#quality">What We Do?</a>
         <a href="#reach">Global Reach</a>
         <a href="#lead-capture">Contact Us</a>
-      </nav> 
+      </nav>
 
       <!-- Backdrop to close drawer on outside click (mobile only) -->
       <div class="drawer-backdrop" aria-hidden="true"></div>
@@ -188,6 +191,41 @@
       </p>
     </div>
   </section>
+
+  <!-- ===== ESTATE VIDEO ===== -->
+  <section class="estate-video">
+    <div class="container">
+      <h2>See Our Estate & Processing in Action</h2>
+      <p>From cultivation to export-ready green beans</p>
+      
+      <div class="video-wrapper" id="video-container">
+        <div id="player"></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Load YouTube IFrame API
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // Create player when API is ready
+    var player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        height: '100%',
+        width: '100%',
+        videoId: 'lvrstZSS3HM',
+        playerVars: {
+          'playsinline': 1,
+          'rel': 0,
+          'modestbranding': 1
+        }
+      });
+    }
+  </script>
 
   <!-- ===== PRODUCTS ===== -->
   <section id="products" class="products section">
@@ -293,59 +331,75 @@
       <div class="gallery-grid">
         <!-- Coffee Images -->
         <div class="gallery-item" data-category="coffee">
-          <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Coffee%20Flip%20Card.jpg" alt="Premium coffee beans" loading="lazy">
-          <div class="gallery-overlay">
-            <h4>Premium Coffee Beans</h4>
-            <p>Arabica & Robusta varieties</p>
+          <div class="gallery-image">
+            <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/main/HP_Coffee/Red_Cherry.png" alt="Coffee Cherry" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <h4>Estate-Grown Excellence</h4>
+            <p>Grown under natural forest canopy in rich Western Ghats soil</p>
           </div>
         </div>
         <div class="gallery-item" data-category="coffee">
-          <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&q=80" alt="Coffee plantation" loading="lazy">
-          <div class="gallery-overlay">
-            <h4>Coffee Plantation</h4>
-            <p>Estate-sourced from Chikkamagaluru</p>
+          <div class="gallery-image">
+            <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/main/HP_Coffee/Harvesting.jpg" alt="Coffee Harvest" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <h4>Selective Harvesting</h4>
+            <p>Hand-harvested at peak ripeness to ensure flavor integrity</p>
           </div>
         </div>
         <div class="gallery-item" data-category="coffee">
-          <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600&q=80" alt="Coffee processing" loading="lazy">
-          <div class="gallery-overlay">
-            <h4>Processing & Grading</h4>
-            <p>Quality-checked at origin</p>
+          <div class="gallery-image">
+            <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/main/HP_Coffee/Parchment.png" alt="Coffee Pulper" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <h4>Careful Post-Harvest Handling</h4>
+            <p>Controlled pulping and washing for uniform, traceable lots</p>
           </div>
         </div>
         <div class="gallery-item" data-category="coffee">
-          <img src="https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?w=600&q=80" alt="Green coffee beans" loading="lazy">
-          <div class="gallery-overlay">
-            <h4>Clean Green Beans</h4>
-            <p>Export-ready packaging</p>
+          <div class="gallery-image">
+            <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/main/Coffee%20Flip%20Card.jpg" alt="Green coffee beans" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <h4>Export-Grade Green Beans</h4>
+            <p>Quality-checked, moisture-controlled & export compliant</p>
           </div>
         </div>
 
         <!-- Tea Images -->
         <div class="gallery-item" data-category="tea" style="display:none">
-          <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Tea%20Flip%20Card.webp" alt="Premium tea leaves" loading="lazy">
-          <div class="gallery-overlay">
+          <div class="gallery-image">
+            <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Tea%20Flip%20Card.webp" alt="Premium tea leaves" loading="lazy">
+          </div>
+          <div class="gallery-caption">
             <h4>Premium Tea Leaves</h4>
             <p>CTC & Orthodox varieties</p>
           </div>
         </div>
         <div class="gallery-item" data-category="tea" style="display:none">
-          <img src="https://images.unsplash.com/photo-1563822249366-3efbb5c8f9e6?w=600&q=80" alt="Tea plantation" loading="lazy">
-          <div class="gallery-overlay">
+          <div class="gallery-image">
+            <img src="https://images.unsplash.com/photo-1563822249366-3efbb5c8f9e6?w=600&q=80" alt="Tea plantation" loading="lazy">
+          </div>
+          <div class="gallery-caption">
             <h4>Tea Gardens</h4>
             <p>Fresh from estates</p>
           </div>
         </div>
         <div class="gallery-item" data-category="tea" style="display:none">
-          <img src="https://images.unsplash.com/photo-1597318130878-aa7e6f93b9a1?w=600&q=80" alt="Tea processing" loading="lazy">
-          <div class="gallery-overlay">
+          <div class="gallery-image">
+            <img src="https://images.unsplash.com/photo-1597318130878-aa7e6f93b9a1?w=600&q=80" alt="Tea processing" loading="lazy">
+          </div>
+          <div class="gallery-caption">
             <h4>Tea Processing</h4>
             <p>Traditional methods</p>
           </div>
         </div>
         <div class="gallery-item" data-category="tea" style="display:none">
-          <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=600&q=80" alt="Packaged tea" loading="lazy">
-          <div class="gallery-overlay">
+          <div class="gallery-image">
+            <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=600&q=80" alt="Packaged tea" loading="lazy">
+          </div>
+          <div class="gallery-caption">
             <h4>Export Packaging</h4>
             <p>Bulk & retail options</p>
           </div>
@@ -353,33 +407,48 @@
 
         <!-- Pepper Images -->
         <div class="gallery-item" data-category="pepper" style="display:none">
-          <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Pepper.jpg" alt="Black pepper" loading="lazy">
-          <div class="gallery-overlay">
+          <div class="gallery-image">
+            <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Pepper.jpg" alt="Black pepper" loading="lazy">
+          </div>
+          <div class="gallery-caption">
             <h4>Premium Black Pepper</h4>
             <p>High density, low defects</p>
           </div>
         </div>
         <div class="gallery-item" data-category="pepper" style="display:none">
-          <img src="https://images.unsplash.com/photo-1599909533730-f9d7e4f2c2e5?w=600&q=80" alt="Pepper plantation" loading="lazy">
-          <div class="gallery-overlay">
+          <div class="gallery-image">
+            <img src="https://images.unsplash.com/photo-1599909533730-f9d7e4f2c2e5?w=600&q=80" alt="Pepper plantation" loading="lazy">
+          </div>
+          <div class="gallery-caption">
             <h4>Pepper Vines</h4>
             <p>Grown in Western Ghats</p>
           </div>
         </div>
         <div class="gallery-item" data-category="pepper" style="display:none">
-          <img src="https://images.unsplash.com/photo-1599909533730-f9d7e4f2c2e5?w=600&q=80" alt="White pepper" loading="lazy">
-          <div class="gallery-overlay">
+          <div class="gallery-image">
+            <img src="https://images.unsplash.com/photo-1599909533730-f9d7e4f2c2e5?w=600&q=80" alt="White pepper" loading="lazy">
+          </div>
+          <div class="gallery-caption">
             <h4>White Pepper</h4>
             <p>Cleaned & sorted</p>
           </div>
         </div>
         <div class="gallery-item" data-category="pepper" style="display:none">
-          <img src="https://images.unsplash.com/photo-1506368249639-73a05d6f6488?w=600&q=80" alt="Pepper packaging" loading="lazy">
-          <div class="gallery-overlay">
+          <div class="gallery-image">
+            <img src="https://images.unsplash.com/photo-1506368249639-73a05d6f6488?w=600&q=80" alt="Pepper packaging" loading="lazy">
+          </div>
+          <div class="gallery-caption">
             <h4>Export Ready</h4>
             <p>25/50kg woven bags</p>
           </div>
         </div>
+      </div>
+
+      <!-- View More Button -->
+      <div class="gallery-view-more">
+        <a href="gallery.html" class="btn btn--view-more" id="gallery-view-more">
+          View Full Gallery <i class="fa-solid fa-arrow-right"></i>
+        </a>
       </div>
     </div>
   </section>
@@ -758,14 +827,22 @@
   (function(){
     const tabs = document.querySelectorAll('.gallery-tab');
     const items = document.querySelectorAll('.gallery-item');
+    const viewMoreBtn = document.getElementById('gallery-view-more');
+    let currentCategory = 'coffee';
     
     tabs.forEach(tab => {
       tab.addEventListener('click', function(){
         const category = this.getAttribute('data-category');
+        currentCategory = category;
         
         // Update active tab
         tabs.forEach(t => t.classList.remove('active'));
         this.classList.add('active');
+        
+        // Update View More button to redirect to correct section
+        if (viewMoreBtn) {
+          viewMoreBtn.href = 'gallery.html#' + category;
+        }
         
         // Filter gallery items with fade effect
         items.forEach((item, index) => {
@@ -784,6 +861,11 @@
         });
       });
     });
+    
+    // Initialize View More button with default category
+    if (viewMoreBtn) {
+      viewMoreBtn.href = 'gallery.html#' + currentCategory;
+    }
   })();
   </script>
 </body>
