@@ -140,40 +140,7 @@
 
 /* ===== Mobile-only fixes ===== */
 @media (max-width: 980px){
-  /* keep the 1-column stack */
-  .spec__grid{
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "media"
-      "body";
-  }
-
-  /* Ensure tiny images don't collapse:
-     give the media box a minimum height and let the image fill it */
-  .spec__media{
-    position: relative;
-    min-height: 220px;     /* adjust to 200–260px if desired */
-    overflow: hidden;
-    border-radius: 12px;
-  }
-  .spec__media img{
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;     /* preserves proportions, fills box */
-    aspect-ratio: auto;    /* override desktop ratio on mobile */
-    display: block;
-  }
-}
-/* =========================
-   MOBILE-ONLY FIXES (<=980px)
-   Center cards + media and
-   neutralize the alternating rules
-   ========================= */
-@media (max-width: 980px){
-
-  /* 1) Neutralize the left/right alternation on mobile */
+  /* Stack layout, neutralize alternation */
   .spec__grid,
   .spec:nth-of-type(even) .spec__grid{
     grid-template-columns: 1fr;
@@ -182,48 +149,37 @@
       "body";
   }
 
-  /* 2) Center the whole card block */
+  /* Center cards */
   .spec{
-    max-width: 640px;        /* keep a nice reading width */
+    max-width: 640px;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
 
-  /* 3) Center the figure/media for all cards */
+  /* Media box */
   .spec__media{
-    display: block;          /* remove any flex/grid alignment inherited */
+    display: block;
     width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
     margin-left: auto;
     margin-right: auto;
-    text-align: center;      /* safe fallback */
+    text-align: center;
   }
-  /* In case any even-card overrides were adding side margins, kill them */
   .spec:nth-of-type(even) .spec__media{
     margin-left: auto !important;
     margin-right: auto !important;
   }
 
-  /* 4) Make the image responsive and centered */
+  /* Image: 4:3 crop filling card width */
   .spec__media img{
     display: block;
-    max-width: 100%;
-    width: 92vw;             /* fills but respects side padding */
-    max-width: 420px;        /* nice size on phones */
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 14px;
-  }
-}
-/* ===== Mobile image crop fix (match desktop) ===== */
-@media (max-width: 980px){
-  .spec__media img{
-    aspect-ratio: 4 / 3 !important;  /* same as desktop */
     width: 100%;
     height: auto;
+    aspect-ratio: 4 / 3;
     object-fit: cover;
-    object-position: 50% 50%;        /* center the crop */
-    display: block;
+    object-position: 50% 50%;
+    border-radius: 14px;
   }
 }
