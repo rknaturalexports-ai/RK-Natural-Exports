@@ -198,34 +198,17 @@
       <h2>See Our Estate & Processing in Action</h2>
       <p>From cultivation to export-ready green beans</p>
       
-      <div class="video-wrapper" id="video-container">
-        <div id="player"></div>
+      <div class="video-wrapper">
+        <iframe 
+          src="https://www.youtube-nocookie.com/embed/lvrstZSS3HM?modestbranding=1&rel=0" 
+          title="RK Natural Exports Estate Video" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen
+          loading="lazy">
+        </iframe>
       </div>
     </div>
   </section>
-
-  <script>
-    // Load YouTube IFrame API
-    var tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-    // Create player when API is ready
-    var player;
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('player', {
-        height: '100%',
-        width: '100%',
-        videoId: 'lvrstZSS3HM',
-        playerVars: {
-          'playsinline': 1,
-          'rel': 0,
-          'modestbranding': 1
-        }
-      });
-    }
-  </script>
 
   <!-- ===== PRODUCTS ===== -->
   <section id="products" class="products section">
