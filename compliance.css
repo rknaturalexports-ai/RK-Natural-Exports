@@ -815,7 +815,13 @@
   font-size: .88rem;
   color: rgba(225, 236, 218, .78);
   line-height: 1.68;
-  margin: 0;
+  margin: 0 0 14px;
+}
+
+.comp-docs .pkg-item__tag {
+  color: rgba(190, 232, 168, .92);
+  background: rgba(160, 215, 140, .12);
+  border-color: rgba(160, 215, 140, .28);
 }
 
 /* ── Final CTA ─────────────────────────────────────────────── */
