@@ -26,7 +26,7 @@
     <div class="foot-brand">
       <img src="https://raw.githubusercontent.com/rknaturalexports-ai/RK-Website-Images/refs/heads/main/Company%20Logo%20Transparent.png"
            alt="RK Natural Exports logo" loading="lazy" width="60" height="60">
-      <p class="tagline">Exporting nature's finest — responsibly sourced from Indian farms.</p>
+      <p class="tagline">From the highlands of Chikkamagaluru to global markets — responsibly sourced coffee, tea, and spices.</p>
       <p class="foot-brand-sub">Serving buyers worldwide from Chikkamagaluru, India.</p>
 
       <div class="cta-stack">
@@ -56,9 +56,12 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="${h('#about')}">About</a></li>
         <li><a href="${h('#products')}">Products</a></li>
+        <li class="foot-sublink"><a href="coffee.html">Coffee</a></li>
+        <li class="foot-sublink"><a href="tea.html">Tea</a></li>
+        <li class="foot-sublink"><a href="${h('#products')}">Pepper</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="${h('#quality')}">Sourcing &amp; Quality</a></li>
-        <li><a href="${h('#compliance')}">Compliance</a></li>
+        <li><a href="compliance.html">Compliance</a></li>
         <li><a href="${h('#reach')}">Global Reach</a></li>
         <li><a href="${h('#lead-capture')}">Contact</a></li>
       </ul>
