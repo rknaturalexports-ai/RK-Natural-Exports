@@ -2,6 +2,39 @@
    RK — Coffee Page (hero + alternating spec cards)
    ========================================================= */
 
+/* Gallery CTA strip */
+.coffee-gallery-cta {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: var(--beige, #f4efe7);
+}
+.coffee-gallery-cta--bottom {
+  padding: 2.5rem 1.5rem 3rem;
+}
+.coffee-gallery-cta__text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: var(--muted, #545a52);
+  margin: 0 0 1rem;
+}
+.coffee-gallery-cta__btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: var(--accent, #385a3a);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.coffee-gallery-cta__btn:hover {
+  background: var(--deep, #243a2a);
+  transform: translateY(-1px);
+}
+
 /* Slim hero banner at fixed height (desktop 450px, mobile 320px) */
 .coffee-hero{
   position: relative;
